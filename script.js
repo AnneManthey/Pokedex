@@ -57,14 +57,12 @@ function renderTypes(typeList) {
 // To Do:
 
 //Gallery:
-// renderCards from Pokedex-API
-// Attribute: Name, Img, Kategorie(n), ID
+
 // Button: Mehr laden
 // Anzeige: loading
 // Suchfunktion über Input
 
-// Display-Flex & flex-wrap: wrap
-// Hintergrundfarbe über Class?
+
 // Hover-Effect
 
 // Footer
