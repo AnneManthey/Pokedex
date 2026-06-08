@@ -5,8 +5,8 @@ function getCardTemplate(cardObject, formattedName){
                 <p># ${cardObject.id}</p>
                 <h2 id="card-name">${formattedName}</h2>
             </header>
-            <main>
-                <img id="card-img" src="${cardObject.img}" alt="Pokemon">
+            <main id="card-main" class="card-main ${cardObject.types[0]}">
+                <img src="${cardObject.img}" alt="Pokemon">
             </main>
             <footer>
                 <div>
