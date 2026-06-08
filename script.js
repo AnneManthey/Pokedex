@@ -28,6 +28,27 @@ async function loadCardObject() {
     renderCards();
 }
 
+async function loadMoreCardObjects() {
+    
+    for (let pokeID = 21; pokeID < 41; pokeID++) {
+        try {
+            let response = await fetch(baseURL + pokeID);
+            let pokeData = await response.json();
+            let pokeTypes = pokeData.types.map(t => t.type.name); //types (ggf. mehrere) ziehen mit map
+            cardList.push({
+                "id": pokeID,
+                "name": pokeData.name,
+                "img": pokeData.sprites.other['official-artwork'].front_default,
+                "types": pokeTypes
+            });
+        } catch (error) {
+            console.error(`Bad request`, error);
+
+        }
+    }
+    renderCards();
+}
+
 
 function renderCards() {
     const cardGallery = document.getElementById("content");
@@ -58,7 +79,6 @@ function renderTypes(typeList) {
 
 //Gallery:
 
-// Button: Mehr laden
 // Anzeige: loading
 // Suchfunktion über Input
 
