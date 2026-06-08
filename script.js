@@ -3,17 +3,26 @@ let cardList = [];
 
 function init() {
     loadCardObject();
-    // renderCards();
+    renderCards();
 
 }
 
-function loadCardObject() {
+async function loadCardObject() {
     for (let pokeID = 1; pokeID < 21; pokeID++) {
-        cardList.push({
-            "name": loadPokeName(pokeID),
-            "img": loadPokeImg(pokeID),
-            // "type": loadPokeType(pokeID)
-        });
+        try {
+            let response = await fetch(baseURL + pokeID);
+            let pokeData = await response.json();
+            let pokeTypes = pokeData.types.map(t => t.type.name); //types (ggf. mehrere) ziehen mit map
+            cardList.push({
+                "id": pokeID,
+                "name": pokeData.name,
+                "img": pokeData.sprites.other['official-artwork'].front_default,
+                "types": pokeTypes
+            });
+        } catch (error) {
+            console.error(`Bad request`, error);
+
+        }
     }
 
 }
@@ -25,32 +34,8 @@ function renderCards() {
     for (let pokeID = 1; pokeID < 21; pokeID++) {
         cardGallery.innerHTML += getCardTemplate(pokeID);
     }
-
 }
 
-
-
-async function loadPokeName(pokeID) {
-    let response = await fetch(baseURL + pokeID);
-    let responseToJson = await response.json();
-    return responseToJson.name;
-}
-
-async function loadPokeImg(pokeID) {
-    let response = await fetch(baseURL + pokeID);
-    let responseToJson = await response.json();
-    console.log(responseToJson.sprites.other.official - artwork.front - shiny);
-    return responseToJson.sprites.other.official - artwork.front - shiny;
-
-}
-
-async function loadPokeType(pokeID) {
-    let response = await fetch(baseURL + pokeID);
-    let responseToJson = await response.json();
-    for (let typeIndex = 0; typeIndex < typeIndex.length; typeIndex++) {     // wie zugriff auf type length?
-    }
-    return responseToJson.name; //type
-}
 
 
 
