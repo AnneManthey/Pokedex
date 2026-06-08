@@ -1,0 +1,16 @@
+:root{
+    --dark-background: rgb(4, 37, 5);
+    --light-background:rgba(17, 75, 28, 0.5);
+    
+}
+
+html{
+    font-family: "Figtree";
+    font-size: 16px;
+}
+
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
