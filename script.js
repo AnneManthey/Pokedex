@@ -1,8 +1,9 @@
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 let cardList = [];
+let currentCards =[];   // mit cardList gleichsetzen und dann damit arbeiten (Video!)
 
 function init() {
-    loadCardObject();
+    loadCardObject();  // rename FillcardList?
     //renderCards();
 
 }
@@ -79,12 +80,11 @@ function renderTypes(typeList) {
 
 //Gallery:
 
+
+// Filterfunktion über Input
+
 // Anzeige: loading
-// Suchfunktion über Input
-
-
 // Hover-Effect
-
 // Footer
 
 
