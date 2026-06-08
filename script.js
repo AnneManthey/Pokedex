@@ -1,15 +1,59 @@
-function init(){
-    renderCards();
+const baseURL = "https://pokeapi.co/api/v2/pokemon/";
+let cardList = [];
+
+function init() {
+    loadCardObject();
+    // renderCards();
+
+}
+
+function loadCardObject() {
+    for (let pokeID = 1; pokeID < 21; pokeID++) {
+        cardList.push({
+            "name": loadPokeName(pokeID),
+            "img": loadPokeImg(pokeID),
+            // "type": loadPokeType(pokeID)
+        });
+    }
 
 }
 
 
-function renderCards(){
+function renderCards() {
     const cardGallery = document.getElementById("content");
     cardGallery.innerHTML = "";
-    // for-schleife über index bzw. id mit max 20?
-    cardGallery.innerHTML += getCardTemplate();
+    for (let pokeID = 1; pokeID < 21; pokeID++) {
+        cardGallery.innerHTML += getCardTemplate(pokeID);
+    }
+
 }
+
+
+
+async function loadPokeName(pokeID) {
+    let response = await fetch(baseURL + pokeID);
+    let responseToJson = await response.json();
+    return responseToJson.name;
+}
+
+async function loadPokeImg(pokeID) {
+    let response = await fetch(baseURL + pokeID);
+    let responseToJson = await response.json();
+    console.log(responseToJson.sprites.other.official - artwork.front - shiny);
+    return responseToJson.sprites.other.official - artwork.front - shiny;
+
+}
+
+async function loadPokeType(pokeID) {
+    let response = await fetch(baseURL + pokeID);
+    let responseToJson = await response.json();
+    for (let typeIndex = 0; typeIndex < typeIndex.length; typeIndex++) {     // wie zugriff auf type length?
+    }
+    return responseToJson.name; //type
+}
+
+
+
 
 
 

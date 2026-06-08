@@ -1,12 +1,12 @@
-function getCardTemplate(){
+function getCardTemplate(pokeID){
     return /*html*/ `
      <button id="card">
             <header>
-                <p># 0</p>
-                <h2>Name</h2>
+                <p># ${pokeID}</p>
+                <h2 id="card-name">${cardList.name}</h2>
             </header>
             <main>
-                <img src="" alt="">
+                <img id="card-img" src="" alt="">
             </main>
             <footer>
                 <img src="" alt="">
