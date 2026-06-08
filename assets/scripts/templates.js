@@ -1,15 +1,17 @@
-function getCardTemplate(pokeID){
+function getCardTemplate(cardObject, formattedName){
     return /*html*/ `
      <button id="card">
             <header>
-                <p># ${pokeID}</p>
-                <h2 id="card-name">${cardList[pokeID].name}</h2>
+                <p># ${cardObject.id}</p>
+                <h2 id="card-name">${formattedName}</h2>
             </header>
             <main>
-                <img id="card-img" src="${cardList[pokeID].img}" alt="Pokemon">
+                <img id="card-img" src="${cardObject.img}" alt="Pokemon">
             </main>
             <footer>
-                <img src="" alt="">
+                <div>
+                ${renderTypes(cardObject.types)}
+                </div>
             </footer>
         </button>
     `

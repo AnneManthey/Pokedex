@@ -3,7 +3,7 @@ let cardList = [];
 
 function init() {
     loadCardObject();
-    renderCards();
+    //renderCards();
 
 }
 
@@ -24,16 +24,27 @@ async function loadCardObject() {
 
         }
     }
-
+    //console.log(cardList);
+    renderCards();
 }
 
 
 function renderCards() {
     const cardGallery = document.getElementById("content");
     cardGallery.innerHTML = "";
-    for (let pokeID = 1; pokeID < 21; pokeID++) {
-        cardGallery.innerHTML += getCardTemplate(pokeID);
+    for (let index = 0; index < cardList.length; index++) {
+        let cardObject = cardList[index];
+        let formattedName = cardObject.name.charAt(0).toUpperCase() + cardObject.name.slice(1); // Ersten Buchstaben des Namens groß schreiben
+        cardGallery.innerHTML += getCardTemplate(cardObject, formattedName); // cardObject übergeben?
     }
+}
+
+function renderTypes(typeList) {
+    let pokeTypes = "";
+    for (let index = 0; index < typeList.length; index++) {
+        pokeTypes += `<p class="type-badge ${typeList[index]}">${typeList[index]}</p>`;
+    }
+    return pokeTypes;
 }
 
 
