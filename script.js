@@ -84,11 +84,8 @@ async function openDialog(pokeID) {
     for(let index = 0; index < currentCards.length; index++){
         if(currentCards[index].id === pokeID){
             dialogBaseData = currentCards[index];
-            // break;
         }
     }
-    //if (!dialogBaseData) return; // Falls DialogBaseData = null, soll es abbrechen.
-
     let response = await fetch(baseURL + pokeID);
     let dialogPokeDetails = await response.json();
     let formattedName = dialogBaseData.name.charAt(0).toUpperCase() + dialogBaseData.name.slice(1);
@@ -148,11 +145,11 @@ function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dia
 
 function renderDialogMovesTab(movesArray){
     let pokeMoves = "";
-    for (index = 0; index < movesArray.length && index < 10; index++){
+    for (index = 0; index < movesArray.length && index < 5; index++){
         let currentPokeMove = movesArray[index];
         let moveName = currentPokeMove.move.name;
 
-        pokeMoves += `<span class="move_badge">${moveName}</span>`;
+        pokeMoves += `<p class="move_badge">${moveName}</p>`;
     }
 
     return `
@@ -181,10 +178,10 @@ function renderDialogAboutTab(dialogPokeDetails){
 
     return `
         <h3>About</h3>
-        <p><strong>Height:</strong> ${heightInMeter} m</p>
-        <p><strong>Weight:</strong> ${weightInKg} kg</p>
-        <p><strong>Abilities:</strong> ${getAbilitiesAsText(dialogPokeDetails.abilities)}</p>
-        <p><strong>Base Exp:</strong> ${dialogPokeDetails.base_experience} XP</p>
+        <p>Height: ${heightInMeter} m</p>
+        <p>Weight: ${weightInKg} kg</p>
+        <p>Abilities: ${getAbilitiesAsText(dialogPokeDetails.abilities)}</p>
+        <p>Base Exp: ${dialogPokeDetails.base_experience} XP</p>
     `
 
 }
@@ -210,8 +207,11 @@ function renderDialogAboutTab(dialogPokeDetails){
 
 // Dialog:
 
-
-// open dialog anpassen (nicht async?)
+// html auslagern
 // closeDialog (auf Hintergrund)
-
 // forward/back function
+// ggf. moves austauschen?
+
+// CSS hübsch machen
+
+// Responsive
