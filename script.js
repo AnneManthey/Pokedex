@@ -1,12 +1,10 @@
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const cardGallery = document.getElementById("content");
 let cardList = [];
-let currentCards = [];   // mit cardList gleichsetzen und dann damit arbeiten (Video!)
+let currentCards = [];
 
 function init() {
-    loadCardObject();  // rename FillcardList?
-    
-
+    loadCards();
 }
 
 function showAllCards() {
@@ -15,7 +13,7 @@ function showAllCards() {
     renderCards();
 }
 
-async function loadCardObject() {
+async function loadCards() {
     for (let pokeID = 1; pokeID < 21; pokeID++) {
         try {
             let response = await fetch(baseURL + pokeID);
@@ -29,14 +27,12 @@ async function loadCardObject() {
             });
         } catch (error) {
             console.error(`Bad request`, error);
-
         }
     }
     showAllCards();
 }
 
-async function loadMoreCardObjects() {
-
+async function loadMoreCards() {
     for (let pokeID = 21; pokeID < 41; pokeID++) {
         try {
             let response = await fetch(baseURL + pokeID);
@@ -50,12 +46,10 @@ async function loadMoreCardObjects() {
             });
         } catch (error) {
             console.error(`Bad request`, error);
-
         }
     }
     showAllCards()
 }
-
 
 
 function renderCards() {
