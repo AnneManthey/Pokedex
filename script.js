@@ -86,15 +86,30 @@ function renderTypes(typeList) {
     return pokeTypes;
 }
 
-function openDialog() {
+function openDialog(index) {
     dialogRef.showModal();
     dialogRef.innerHTML = getDialogTemplate();
+    document.getElementById("default-open").click();
 
 }
 
 function closeDialog() {
     event.stopPropagation();
     dialogRef.close();
+}
+
+function openTab(evt, tabName) {
+    let tabContent = document.getElementsByClassName("tab_content");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
+    let tabLinks = document.getElementsByClassName("tab_links");
+  for (i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+
 }
 
 
@@ -115,7 +130,6 @@ function closeDialog() {
 
 
 // Dialog:
-// Dialog template
 // renderDialog
 // closeDialog (auf Hintergrund)
 // render kategorien

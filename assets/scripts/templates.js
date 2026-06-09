@@ -17,7 +17,7 @@ function getCardTemplate(cardObject, formattedName){
     `
 }
 
-function getDialogTemplate(){
+function getDialogTemplate(index){
     return /*html*/ `
         <header class="dialog_header">
             <p>#</p>
@@ -31,9 +31,9 @@ function getDialogTemplate(){
             </section>
             <section>
                 <div class="tab">
-                    <button class="tablinks" onclick="openTab(event, 'dialog-about')" id="defaultOpen">About</button>
-                    <button class="tablinks" onclick="openTab(event, 'dialog-stats')">Base Stats</button>
-                    <button class="tablinks" onclick="openTab(event, 'dialog-moves')">Moves</button>
+                    <button class="tab_links" onclick="openTab(event, 'dialog-about')" id="default-open">About</button>
+                    <button class="tab_links" onclick="openTab(event, 'dialog-stats')">Base Stats</button>
+                    <button class="tab_links" onclick="openTab(event, 'dialog-moves')">Moves</button>
                 </div>
                 <div id="dialog-about" class="tab_content">
                     <h3>About</h3>
