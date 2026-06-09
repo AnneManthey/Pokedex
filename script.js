@@ -9,7 +9,7 @@ function init() {
 
 }
 
-function showAllCards(){
+function showAllCards(){        // in loadCardObject hinzufügen
     cardGallery.innerHTML = "";
     currentCards = cardList;
     renderCards();
@@ -71,18 +71,17 @@ function renderCards() {
 }
 
 function filterCards() {
-
     let searchInputRef = document.getElementById("search-input");
     let searchInput = searchInputRef.value;
     const errorMessage = document.getElementById("error-message");
     if (searchInput.length >= 3) {
         currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
         renderCards();
-        errorMessage.classList.add("hide-error");
+        errorMessage.classList.add("hide_error");
         searchInputRef.value ="";
     }
     else {
-        errorMessage.classList.remove("hide-error");
+        errorMessage.classList.remove("hide_error");
     }
 }
 
@@ -106,8 +105,6 @@ function renderTypes(typeList) {
 
 //Gallery:
 
-
-// Filterfunktion über Input
 
 // Anzeige: loading
 // Hover-Effect
