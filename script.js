@@ -80,14 +80,21 @@ function renderTypes(typeList) {
 }
 
 async function openDialog(pokeID) {
-    let dialogBaseData = currentCards.find(cardList => cardList.id === pokeID);
-    if (!dialogBaseData) return; // Was macht das?
+    let dialogBaseData = null;
+    for(let index = 0; index < currentCards.length; index++){
+        if(currentCards[index].id === pokeID){
+            dialogBaseData = currentCards[index];
+            // break;
+        }
+    }
+    //if (!dialogBaseData) return; // Falls DialogBaseData = null, soll es abbrechen.
 
     let response = await fetch(baseURL + pokeID);
     let dialogPokeDetails = await response.json();
+    let formattedName = dialogBaseData.name.charAt(0).toUpperCase() + dialogBaseData.name.slice(1);
 
     dialogRef.showModal();
-    dialogRef.innerHTML = getDialogTemplate(dialogBaseData, dialogPokeDetails);
+    dialogRef.innerHTML = getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName);
     document.getElementById("default-open").click();
 }
 
@@ -203,10 +210,8 @@ function renderDialogAboutTab(dialogPokeDetails){
 
 // Dialog:
 
-// Details Daten laden -> function
-// open dialog anpassen (nicht async?)
 
-// renderDialog
+// open dialog anpassen (nicht async?)
 // closeDialog (auf Hintergrund)
-// render kategorien
+
 // forward/back function

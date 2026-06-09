@@ -17,11 +17,11 @@ function getCardTemplate(cardObject, formattedName){
     `
 }
 
-function getDialogTemplate(dialogBaseData, dialogPokeDetails){
+function getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName){
     return /*html*/ `
         <header class="dialog_header">
             <p># ${dialogBaseData.id}</p>
-            <h2>${dialogBaseData.name}</h2>
+            <h2>${formattedName}</h2>
             <button onclick="closeDialog()">x</button>
         </header>
         <main>
