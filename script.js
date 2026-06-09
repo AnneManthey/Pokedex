@@ -21,7 +21,13 @@ async function loadCards() {
         try {
             let response = await fetch(baseURL + pokeID);
             let pokeData = await response.json();
-            let pokeTypes = pokeData.types.map(t => t.type.name); //types (ggf. mehrere) ziehen mit map
+            let pokeTypes = [];
+            for(let index = 0; index < pokeData.types.length; index++){
+                let currentTypeObject = pokeData.types[index];
+                let typeName = currentTypeObject.type.name;
+                pokeTypes.push(typeName);
+            }
+
             cardList.push({
                 "id": pokeID,
                 "name": pokeData.name,
