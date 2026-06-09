@@ -111,7 +111,7 @@ function renderDialogTypes(typesArray) {
     }
 }
 
-function renderDialogStatsTab(statsArray) { // wo ist die verbindung zur ursprungs-URL? wie komme ich in den stats/types array?
+function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dialogBaseData als Parameter in Functionsaufruf
     let pokeStats = "";
     for (let index = 0; index < statsArray.length; index++) {
         let currentPokeStat = statsArray[index];
@@ -135,7 +135,7 @@ function renderDialogStatsTab(statsArray) { // wo ist die verbindung zur ursprun
 
 function renderDialogMovesTab(movesArray){
     let pokeMoves = "";
-    for (index = 0; index < movesArray.length && i < 10; i++){
+    for (index = 0; index < movesArray.length && index < 10; index++){
         let currentPokeMove = movesArray[index];
         let moveName = currentPokeMove.move.name;
 

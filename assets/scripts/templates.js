@@ -40,12 +40,10 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails){
                     <p>Platzhalter</p>
                 </div>
                 <div id="dialog-stats" class="tab_content">
-                    <h3>Base Stats</h3>
-                    <p>Platzhalter</p>
+                    ${renderDialogStatsTab(dialogPokeDetails.stats)}
                 </div>
                 <div id="dialog-moves" class="tab_content">
-                    <h3>Moves</h3>
-                    <p>Platzhalter</p>
+                    ${renderDialogMovesTab(dialogPokeDetails.moves)}
                 </div>
             </section>
         </main>
