@@ -5,11 +5,11 @@ let currentCards = [];   // mit cardList gleichsetzen und dann damit arbeiten (V
 
 function init() {
     loadCardObject();  // rename FillcardList?
-    //renderCards();
+    
 
 }
 
-function showAllCards(){        // in loadCardObject hinzufügen
+function showAllCards() {
     cardGallery.innerHTML = "";
     currentCards = cardList;
     renderCards();
@@ -32,9 +32,7 @@ async function loadCardObject() {
 
         }
     }
-    //console.log(cardList);
-    currentCards = cardList;
-    renderCards();
+    showAllCards();
 }
 
 async function loadMoreCardObjects() {
@@ -55,8 +53,7 @@ async function loadMoreCardObjects() {
 
         }
     }
-    currentCards = cardList;
-    renderCards();
+    showAllCards()
 }
 
 
@@ -78,7 +75,7 @@ function filterCards() {
         currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
         renderCards();
         errorMessage.classList.add("hide_error");
-        searchInputRef.value ="";
+        searchInputRef.value = "";
     }
     else {
         errorMessage.classList.remove("hide_error");
