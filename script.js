@@ -52,7 +52,6 @@ async function loadMoreCards() {
     showAllCards()
 }
 
-
 function renderCards() {
     cardGallery.innerHTML = "";
     for (let index = 0; index < currentCards.length; index++) {
@@ -86,11 +85,16 @@ function renderTypes(typeList) {
     return pokeTypes;
 }
 
-function openDialog(index) {
+async function openDialog(pokeID) {
+    let baseData = currentCards.find(cardList => cardList.id === pokeID);
+    if (!baseData) return; // Was macht das?
+
+    let response = await fetch(baseURL + pokeID);
+    let dialogPokeDetails = await response.json();
+
     dialogRef.showModal();
     dialogRef.innerHTML = getDialogTemplate();
     document.getElementById("default-open").click();
-
 }
 
 function closeDialog() {
@@ -98,17 +102,17 @@ function closeDialog() {
     dialogRef.close();
 }
 
-function openTab(evt, tabName) {
+function openDialogTab(evt, tabName) {
     let tabContent = document.getElementsByClassName("tab_content");
     for (i = 0; i < tabContent.length; i++) {
         tabContent[i].style.display = "none";
     }
     let tabLinks = document.getElementsByClassName("tab_links");
-  for (i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-  }
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 
 }
 
@@ -123,13 +127,14 @@ function openTab(evt, tabName) {
 
 //Gallery:
 
-
 // Anzeige: loading
 // Hover-Effect
-// Footer
+// Footer?
+// CSS hübsch machen
 
 
 // Dialog:
+
 // renderDialog
 // closeDialog (auf Hintergrund)
 // render kategorien

@@ -1,6 +1,6 @@
 function getCardTemplate(cardObject, formattedName){
     return /*html*/ `
-     <button onclick="openDialog()" id="card">
+     <button onclick="openDialog(${cardObject.id})" id="card">
             <header>
                 <p># ${cardObject.id}</p>
                 <h2 id="card-name">${formattedName}</h2>
@@ -17,11 +17,11 @@ function getCardTemplate(cardObject, formattedName){
     `
 }
 
-function getDialogTemplate(index){
+function getDialogTemplate(){
     return /*html*/ `
         <header class="dialog_header">
-            <p>#</p>
-            <h2>Name</h2>
+            <p># </p>
+            <h2></h2>
             <button onclick="closeDialog()">x</button>
         </header>
         <main>
@@ -31,9 +31,9 @@ function getDialogTemplate(index){
             </section>
             <section>
                 <div class="tab">
-                    <button class="tab_links" onclick="openTab(event, 'dialog-about')" id="default-open">About</button>
-                    <button class="tab_links" onclick="openTab(event, 'dialog-stats')">Base Stats</button>
-                    <button class="tab_links" onclick="openTab(event, 'dialog-moves')">Moves</button>
+                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-about')" id="default-open">About</button>
+                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-stats')">Base Stats</button>
+                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-moves')">Moves</button>
                 </div>
                 <div id="dialog-about" class="tab_content">
                     <h3>About</h3>
