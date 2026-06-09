@@ -37,7 +37,7 @@ async function loadCards() {
 
 function loadMoreCards() {
     galleryLimit += 20;
-    showAllCards()
+    showAllCards();
 }
 
 function renderCards() {
@@ -103,6 +103,15 @@ function openDialogTab(evt, tabName) {
     evt.currentTarget.className += " active";
 
 }
+
+function renderDialogTypes(typesArray){
+    let pokeTypes = "";
+    for(let index=0; index < typesArray.length; index++){
+        pokeTypes += `<span> ${typesArray[index]}</span>`;
+    }
+}
+
+
 
 
 
