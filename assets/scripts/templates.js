@@ -17,16 +17,16 @@ function getCardTemplate(cardObject, formattedName){
     `
 }
 
-function getDialogTemplate(){
+function getDialogTemplate(dialogBaseData, dialogPokeDetails){
     return /*html*/ `
         <header class="dialog_header">
-            <p># </p>
-            <h2></h2>
+            <p># ${dialogBaseData.id}</p>
+            <h2>${dialogBaseData.name}</h2>
             <button onclick="closeDialog()">x</button>
         </header>
         <main>
-            <section>
-                <img src="" alt="">
+            <section class="${dialogBaseData.types[0]}">
+                <img src="${dialogBaseData.img}" alt="Pokemon">
                 <div></div>
             </section>
             <section>

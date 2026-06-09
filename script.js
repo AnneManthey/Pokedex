@@ -86,14 +86,14 @@ function renderTypes(typeList) {
 }
 
 async function openDialog(pokeID) {
-    let baseData = currentCards.find(cardList => cardList.id === pokeID);
-    if (!baseData) return; // Was macht das?
+    let dialogBaseData = currentCards.find(cardList => cardList.id === pokeID);
+    if (!dialogBaseData) return; // Was macht das?
 
     let response = await fetch(baseURL + pokeID);
     let dialogPokeDetails = await response.json();
 
     dialogRef.showModal();
-    dialogRef.innerHTML = getDialogTemplate();
+    dialogRef.innerHTML = getDialogTemplate(dialogBaseData, dialogPokeDetails);
     document.getElementById("default-open").click();
 }
 
