@@ -36,8 +36,7 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails){
                     <button class="tab_links" onclick="openDialogTab(event, 'dialog-moves')">Moves</button>
                 </div>
                 <div id="dialog-about" class="tab_content">
-                    <h3>About</h3>
-                    <p>Platzhalter</p>
+                    ${renderDialogAboutTab(dialogPokeDetails)}
                 </div>
                 <div id="dialog-stats" class="tab_content">
                     ${renderDialogStatsTab(dialogPokeDetails.stats)}

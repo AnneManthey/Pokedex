@@ -150,6 +150,32 @@ function renderDialogMovesTab(movesArray){
     `
 }
 
+function getAbilitiesAsText(abilitiesArray){
+    let abilityText = "";
+    for(let index = 0; index < abilitiesArray.length; index++){
+        abilityText += abilitiesArray[index].ability.name;
+
+        if (index < abilitiesArray.length -1){
+            abilityText += ", ";
+        }
+    }
+    return abilityText;
+}
+
+function renderDialogAboutTab(dialogPokeDetails){
+    let heightInMeter = dialogPokeDetails.height / 10;
+    let weightInKg = dialogPokeDetails.weight / 10;
+
+    return `
+        <h3>About</h3>
+        <p><strong>Height:</strong> ${heightInMeter} m</p>
+        <p><strong>Weight:</strong> ${weightInKg} kg</p>
+        <p><strong>Abilities:</strong> ${getAbilitiesAsText(dialogPokeDetails.abilities)}</p>
+        <p><strong>Base Exp:</strong> ${dialogPokeDetails.base_experience} XP</p>
+    `
+
+}
+
 
 
 
