@@ -1,6 +1,8 @@
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const cardGallery = document.getElementById("content");
 const dialogRef = document.getElementById("dialog");
+let galleryLimit = 20;
+
 let cardList = [];
 let currentCards = [];
 
@@ -10,12 +12,12 @@ function init() {
 
 function showAllCards() {
     cardGallery.innerHTML = "";
-    currentCards = cardList;
+    currentCards = cardList.slice(0, galleryLimit);
     renderCards();
 }
 
 async function loadCards() {
-    for (let pokeID = 1; pokeID < 21; pokeID++) {
+    for (let pokeID = 1; pokeID < 201; pokeID++) {
         try {
             let response = await fetch(baseURL + pokeID);
             let pokeData = await response.json();
@@ -33,22 +35,8 @@ async function loadCards() {
     showAllCards();
 }
 
-async function loadMoreCards() {
-    for (let pokeID = 21; pokeID < 41; pokeID++) {
-        try {
-            let response = await fetch(baseURL + pokeID);
-            let pokeData = await response.json();
-            let pokeTypes = pokeData.types.map(t => t.type.name); //types (ggf. mehrere) ziehen mit map
-            cardList.push({
-                "id": pokeID,
-                "name": pokeData.name,
-                "img": pokeData.sprites.other['official-artwork'].front_default,
-                "types": pokeTypes
-            });
-        } catch (error) {
-            console.error(`Bad request`, error);
-        }
-    }
+function loadMoreCards() {
+    galleryLimit += 20;
     showAllCards()
 }
 
@@ -134,6 +122,9 @@ function openDialogTab(evt, tabName) {
 
 
 // Dialog:
+
+// Details Daten laden -> function
+// open dialog anpassen (nicht async?)
 
 // renderDialog
 // closeDialog (auf Hintergrund)
