@@ -104,11 +104,50 @@ function openDialogTab(evt, tabName) {
 
 }
 
-function renderDialogTypes(typesArray){
+function renderDialogTypes(typesArray) {
     let pokeTypes = "";
-    for(let index=0; index < typesArray.length; index++){
+    for (let index = 0; index < typesArray.length; index++) {
         pokeTypes += `<span> ${typesArray[index]}</span>`;
     }
+}
+
+function renderDialogStatsTab(statsArray) { // wo ist die verbindung zur ursprungs-URL? wie komme ich in den stats/types array?
+    let pokeStats = "";
+    for (let index = 0; index < statsArray.length; index++) {
+        let currentPokeStat = statsArray[index];
+        let name = currentPokeStat.stat.name.toUpperCase();
+        let value = currentPokeStat.base_stat;
+
+        pokeStats += `
+        <div class="stat_row">
+                <span class="stat_name">${name}:</span>
+                <span class="stat_value">${value}</span>
+            </div>
+        `
+    }
+    return `
+        <h3>Base Stats</h3>
+        <div class="stats_container">
+            ${pokeStats}
+        </div>
+    `
+}
+
+function renderDialogMovesTab(movesArray){
+    let pokeMoves = "";
+    for (index = 0; index < movesArray.length && i < 10; i++){
+        let currentPokeMove = movesArray[index];
+        let moveName = currentPokeMove.move.name;
+
+        pokeMoves += `<span class="move_badge">${moveName}</span>`;
+    }
+
+    return `
+        <h3>Moves</h3>
+        <div class="moves_container">
+            ${pokeMoves}
+        </div>
+    `
 }
 
 
