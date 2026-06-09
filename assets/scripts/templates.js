@@ -1,6 +1,6 @@
 function getCardTemplate(cardObject, formattedName){
     return /*html*/ `
-     <button id="card">
+     <button onclick="openDialog()" id="card">
             <header>
                 <p># ${cardObject.id}</p>
                 <h2 id="card-name">${formattedName}</h2>
@@ -20,9 +20,9 @@ function getCardTemplate(cardObject, formattedName){
 function getDialogTemplate(){
     return /*html*/ `
         <header class="dialog_header">
-            <p></p>
-            <h2></h2>
-            <button>x</button>
+            <p>#</p>
+            <h2>Name</h2>
+            <button onclick="closeDialog()">x</button>
         </header>
         <main>
             <section>

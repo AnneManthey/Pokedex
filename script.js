@@ -1,5 +1,6 @@
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const cardGallery = document.getElementById("content");
+const dialogRef = document.getElementById("dialog");
 let cardList = [];
 let currentCards = [];
 
@@ -83,6 +84,17 @@ function renderTypes(typeList) {
         pokeTypes += `<p class="type-badge ${typeList[index]}">${typeList[index]}</p>`;
     }
     return pokeTypes;
+}
+
+function openDialog() {
+    dialogRef.showModal();
+    dialogRef.innerHTML = getDialogTemplate();
+
+}
+
+function closeDialog() {
+    event.stopPropagation();
+    dialogRef.close();
 }
 
 
