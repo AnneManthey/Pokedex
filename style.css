@@ -38,3 +38,11 @@ button{
  font-size: 1.2rem;
 }
 
+.error_message{
+    color: rgb(105, 23, 23);
+}
+
+.hide_error{
+display: none;
+}
+

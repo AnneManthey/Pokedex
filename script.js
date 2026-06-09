@@ -1,11 +1,18 @@
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
+const cardGallery = document.getElementById("content");
 let cardList = [];
-let currentCards =[];   // mit cardList gleichsetzen und dann damit arbeiten (Video!)
+let currentCards = [];   // mit cardList gleichsetzen und dann damit arbeiten (Video!)
 
 function init() {
     loadCardObject();  // rename FillcardList?
     //renderCards();
 
+}
+
+function showAllCards(){
+    cardGallery.innerHTML = "";
+    currentCards = cardList;
+    renderCards();
 }
 
 async function loadCardObject() {
@@ -26,11 +33,12 @@ async function loadCardObject() {
         }
     }
     //console.log(cardList);
+    currentCards = cardList;
     renderCards();
 }
 
 async function loadMoreCardObjects() {
-    
+
     for (let pokeID = 21; pokeID < 41; pokeID++) {
         try {
             let response = await fetch(baseURL + pokeID);
@@ -47,19 +55,37 @@ async function loadMoreCardObjects() {
 
         }
     }
+    currentCards = cardList;
     renderCards();
 }
 
 
+
 function renderCards() {
-    const cardGallery = document.getElementById("content");
     cardGallery.innerHTML = "";
-    for (let index = 0; index < cardList.length; index++) {
-        let cardObject = cardList[index];
+    for (let index = 0; index < currentCards.length; index++) {
+        let cardObject = currentCards[index];
         let formattedName = cardObject.name.charAt(0).toUpperCase() + cardObject.name.slice(1); // Ersten Buchstaben des Namens groß schreiben
-        cardGallery.innerHTML += getCardTemplate(cardObject, formattedName); // cardObject übergeben?
+        cardGallery.innerHTML += getCardTemplate(cardObject, formattedName);
     }
 }
+
+function filterCards() {
+
+    let searchInputRef = document.getElementById("search-input");
+    let searchInput = searchInputRef.value;
+    const errorMessage = document.getElementById("error-message");
+    if (searchInput.length >= 3) {
+        currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
+        renderCards();
+        errorMessage.classList.add("hide-error");
+        searchInputRef.value ="";
+    }
+    else {
+        errorMessage.classList.remove("hide-error");
+    }
+}
+
 
 function renderTypes(typeList) {
     let pokeTypes = "";
