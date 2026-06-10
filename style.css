@@ -1,14 +1,33 @@
 main {
     width: 100%;
     /* height: 100dvh; */
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* background-color: var(--dark-background); */
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--dark-background);
+    /* padding: 20px; */
+
 }
 
 button {
     cursor: pointer;
+}
+
+.button_load {
+    width: 130px;
+    background-color: var(--light-background);
+    color: antiquewhite;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.button_load:hover {
+    box-shadow: 2px 2px 1px var(--border);
+}
+
+.load_btn_section {
+    padding: 10px;
 }
 
 .page_header {
@@ -17,6 +36,16 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--light-background);
+    padding: 0px 48px;
+}
+
+.page_footer {
+    width: 100%;
+    height: 80px;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
     background-color: var(--light-background);
     padding: 0px 48px;
 }
@@ -74,9 +103,10 @@ button {
 
 /* Gallery */
 
-.content_section{
+.content_section {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     background-color: var(--dark-background);
     padding: 20px;
     gap: 20px;
@@ -93,11 +123,10 @@ button {
     overflow: hidden;
 }
 
-.card_button:hover{
+.card_button:hover {
     /* border: 4px solid var(--border); */
     box-shadow: 5px 5px 2px var(--border);
 }
-
 
 .card_header {
     background-color: var(--light-background);
@@ -107,27 +136,23 @@ button {
 
 .card_main {
     background-color: var(--light-background);
-    
-    
 }
 
-.card_img{
+.card_img {
     width: 120px;
     border-radius: 2px;
-    
 }
 
-.card_footer{
+.card_footer {
     display: flex;
     height: 40px;
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-    
-    
+
 }
 
-.card_footer span{
+.card_footer span {
     border-radius: 10px;
     padding: 3px;
     border: 2px solid var(--border);

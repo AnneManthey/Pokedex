@@ -1,7 +1,7 @@
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const cardGallery = document.getElementById("content");
 const dialogRef = document.getElementById("dialog");
-let galleryLimit = 20;
+let galleryLimit = 30;
 
 let cardList = [];
 let currentCards = [];
@@ -49,7 +49,7 @@ function loadingSpinner(){
 
 
 function loadMoreCards() {
-    galleryLimit += 20;
+    galleryLimit += 30;
     showAllCards();
 }
 
@@ -205,12 +205,9 @@ function getAbilitiesAsText(abilitiesArray) {
 
 // To Do:
 
-
-// html auslagern
 // closeDialog (auf Hintergrund, der nicht scrollbar)
 
 
 // Footer?
 // CSS hübsch machen
-// Hover-Effect
 // Responsive
