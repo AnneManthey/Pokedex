@@ -17,6 +17,7 @@ function showAllCards() {
 }
 
 async function loadCards() {
+    loadingSpinner();
     for (let pokeID = 1; pokeID < 201; pokeID++) {
         try {
             let response = await fetch(baseURL + pokeID);
@@ -47,7 +48,6 @@ function loadingSpinner(){
 }
 
 
-
 function loadMoreCards() {
     galleryLimit += 20;
     showAllCards();
@@ -69,11 +69,11 @@ function filterCards() {
     if (searchInput.length >= 3) {
         currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
         renderCards();
-        errorMessage.classList.add("hide_error");
+        errorMessage.classList.add("d_none");
         searchInputRef.value = "";
     }
     else {
-        errorMessage.classList.remove("hide_error");
+        errorMessage.classList.remove("d_none");
     }
 }
 
@@ -225,7 +225,6 @@ function renderDialogAboutTab(dialogPokeDetails) {
 // To Do:
 
 
-// Anzeige: loading
 // html auslagern
 // closeDialog (auf Hintergrund, der nicht scrollbar)
 

@@ -25,17 +25,17 @@
         </div>
         <div>
             <input type="text" id="search-input" placeholder=" search ...">
-            <p id="error-message" class="error_message hide_error">at least 3 characters</p>
+            <p id="error-message" class="error_message d_none">at least 3 characters</p>
             <button onclick="filterCards()">Filter</button>
             <button onclick="showAllCards()">Show all</button>
         </div>
     </header>
     <main>
         <section id="content">
-        
+        <img id="loading-spinner" class="loading_spinner d_none" src="./assets/icons/loading.svg" alt="Loading Spinner">
         </section>
         <button onclick="loadMoreCards()">Load more</button>
-        <img id="loading-spinner" class="loading_spinner d_none" src="./assets/icons/loading.svg" alt="Loading Spinner">
+        
         <dialog id="dialog">
         </dialog>
     </main>

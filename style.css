@@ -41,10 +41,6 @@ button{
 .error_message{
     color: rgb(105, 23, 23);
 }
-/* gegen d_none austauschen? */
-.hide_error{    
-display: none;
-}
 
 .loading_spinner{
     position: absolute;
@@ -53,9 +49,9 @@ display: none;
     width: 120px;
     height: 120px;
     margin:-60px 0 0 -60px;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
 }
 
 @-moz-keyframes spin { 
