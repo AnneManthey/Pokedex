@@ -26,14 +26,13 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName){
         </header>
         <main>
             <section class="${dialogBaseData.types[0]}">
-                <img src="${dialogBaseData.img}" alt="Pokemon">
-                <div></div>
+                <img class="dialog_img" src="${dialogBaseData.img}" alt="Pokemon">
             </section>
-            <section>
-                <div class="tab">
-                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-about')" id="default-open">About</button>
-                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-stats')">Base Stats</button>
-                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-moves')">Moves</button>
+            <section class= "dialog_tab_section">
+                <div class="dialog_tab">
+                    <button class="tab_links bg_tab_active" onclick="openDialogTab(event, 'dialog-about')" id="default-open">About</button>
+                    <button class="tab_links bg_tab_closed" onclick="openDialogTab(event, 'dialog-stats')">Base Stats</button>
+                    <button class="tab_links bg_tab_closed" onclick="openDialogTab(event, 'dialog-moves')">Moves</button>
                 </div>
                 <div id="dialog-about" class="tab_content">
                     ${renderDialogAboutTab(dialogPokeDetails)}
@@ -41,12 +40,12 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName){
                 <div id="dialog-stats" class="tab_content">
                     ${renderDialogStatsTab(dialogPokeDetails.stats)}
                 </div>
-                <div id="dialog-moves" class="tab_content">
+                <div id="dialog-moves" class="tab_content bg_tab_closed">
                     ${renderDialogMovesTab(dialogPokeDetails.moves)}
                 </div>
             </section>
         </main>
-        <footer>
+        <footer class= "dialog_footer">
             <button onclick="dialogPreviousCard(${dialogBaseData.id})" class="button_img"><img src="./assets/icons/arrow_left.png" alt="Arrow Left"></button>
             <button onclick="dialogNextCard(${dialogBaseData.id})" class="button_img"><img src="./assets/icons/arrow_right.png" alt="Arrow Right"></button>
         </footer>
