@@ -22,7 +22,7 @@ async function loadCards() {
             let response = await fetch(baseURL + pokeID);
             let pokeData = await response.json();
             let pokeTypes = [];
-            for(let index = 0; index < pokeData.types.length; index++){
+            for (let index = 0; index < pokeData.types.length; index++) {
                 let currentTypeObject = pokeData.types[index];
                 let typeName = currentTypeObject.type.name;
                 pokeTypes.push(typeName);
@@ -81,8 +81,8 @@ function renderTypes(typeList) {
 
 async function openDialog(pokeID) {
     let dialogBaseData = null;
-    for(let index = 0; index < currentCards.length; index++){
-        if(currentCards[index].id === pokeID){
+    for (let index = 0; index < currentCards.length; index++) {
+        if (currentCards[index].id === pokeID) {
             dialogBaseData = currentCards[index];
         }
     }
@@ -94,6 +94,17 @@ async function openDialog(pokeID) {
     dialogRef.innerHTML = getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName);
     document.getElementById("default-open").click();
 }
+
+async function dialogNextCard(currentID) {
+    let nextID = currentID +1;
+    if (nextID > currentCards.length) {
+        nextID = 1;
+    }
+    await openDialog(nextID);
+    }
+
+
+
 
 function closeDialog() {
     event.stopPropagation();
@@ -143,9 +154,9 @@ function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dia
     `
 }
 
-function renderDialogMovesTab(movesArray){
+function renderDialogMovesTab(movesArray) {
     let pokeMoves = "";
-    for (index = 0; index < movesArray.length && index < 5; index++){
+    for (index = 0; index < movesArray.length && index < 5; index++) {
         let currentPokeMove = movesArray[index];
         let moveName = currentPokeMove.move.name;
 
@@ -160,19 +171,19 @@ function renderDialogMovesTab(movesArray){
     `
 }
 
-function getAbilitiesAsText(abilitiesArray){
+function getAbilitiesAsText(abilitiesArray) {
     let abilityText = "";
-    for(let index = 0; index < abilitiesArray.length; index++){
+    for (let index = 0; index < abilitiesArray.length; index++) {
         abilityText += abilitiesArray[index].ability.name;
 
-        if (index < abilitiesArray.length -1){
+        if (index < abilitiesArray.length - 1) {
             abilityText += ", ";
         }
     }
     return abilityText;
 }
 
-function renderDialogAboutTab(dialogPokeDetails){
+function renderDialogAboutTab(dialogPokeDetails) {
     let heightInMeter = dialogPokeDetails.height / 10;
     let weightInKg = dialogPokeDetails.weight / 10;
 
