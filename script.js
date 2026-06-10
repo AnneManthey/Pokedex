@@ -133,6 +133,12 @@ function closeDialog() {
     bodyRef.classList.remove("page_body");
 }
 
+window.onclick = function (event) {
+    if (event.target == dialogRef) {
+        closeDialog();
+    }
+}
+
 function openDialogTab(evt, tabName) {
     let tabContent = document.getElementsByClassName("tab_content");
     for (i = 0; i < tabContent.length; i++) {
@@ -211,11 +217,13 @@ function getAbilitiesAsText(abilitiesArray) {
 
 // To Do:
 
-// closeDialog (auf Hintergrund)
-// dialog backdrop
-// Loading-Spinner positionieren & Hintergrund
+// Loading-Spinner auch bei load more, darf dabei nicht klickbar sein
+// Dialog Tabs designen
+// Balken/hübsche Anzeige der Base Stats
 
-// Footer?
-// CSS hübsch machen
+// CSS hübsch machen:
 
+// Farben anpassen
+// Suchfeld & Buttons hübsch machen
+// Footer, Logo, imprint etc?
 // Responsive
