@@ -103,6 +103,15 @@ async function dialogNextCard(currentID) {
     await openDialog(nextID);
     }
 
+async function dialogPreviousCard(currentID) {
+    let previousID = currentID -1;
+    if (previousID < 1){
+        previousID = currentCards.length;
+    }
+    await openDialog(previousID);
+    
+}
+
 
 
 
