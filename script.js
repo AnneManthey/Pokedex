@@ -42,7 +42,8 @@ async function loadCards() {
 }
 
 function loadingSpinner(){
-    
+    const loadingSpinnerRef = document.getElementById("loading-spinner");
+    loadingSpinnerRef.classList.toggle("d_none");
 }
 
 
