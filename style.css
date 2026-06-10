@@ -1,4 +1,4 @@
-.page_body{
+.page_body {
     overflow: hidden;
 }
 
@@ -112,11 +112,11 @@ button {
 
 /* Gallery */
 
-h2{
+h2 {
     font-family: 'Nunito';
 }
 
-p{
+p {
     font-family: 'Nunito';
 }
 
@@ -188,6 +188,11 @@ dialog {
     border: 4px solid var(--border);
 }
 
+.dialog_opened::backdrop {
+    background-color: var(--border);
+    opacity: 0.8;
+    transition: all 0.5s ease-in;
+}
 
 
 .dialog_header {
@@ -231,7 +236,7 @@ border-radius: 20px;
     cursor: pointer;
 }
 
-.tab_links:hover{
+.tab_links:hover {
     background-color: var(--border);
 }
 

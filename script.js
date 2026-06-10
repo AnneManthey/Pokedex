@@ -102,7 +102,7 @@ async function openDialog(pokeID) {
     dialogRef.innerHTML = getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName);
     document.getElementById("default-open").click();
 
-    
+    dialogRef.classList.add("dialog_opened");
     bodyRef.classList.add("page_body");
 }
 
@@ -129,6 +129,7 @@ async function dialogPreviousCard(currentID) {
 function closeDialog() {
     event.stopPropagation();
     dialogRef.close();
+    dialogRef.classList.remove("dialog_opened");
     bodyRef.classList.remove("page_body");
 }
 
@@ -211,7 +212,7 @@ function getAbilitiesAsText(abilitiesArray) {
 // To Do:
 
 // closeDialog (auf Hintergrund)
-// dialog backdrop & BG nicht scrollbar machen
+// dialog backdrop
 // Loading-Spinner positionieren & Hintergrund
 
 // Footer?
