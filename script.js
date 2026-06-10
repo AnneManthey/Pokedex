@@ -144,9 +144,10 @@ function openDialogTab(evt, tabName) {
 function renderDialogTypes(typesArray) {
     let pokeTypes = "";
     for (let index = 0; index < typesArray.length; index++) {
-        pokeTypes += `<span> ${typesArray[index]}</span>`;
+        pokeTypes += getDialogTypesTemplate();
     }
 }
+
 
 function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dialogBaseData als Parameter in Functionsaufruf
     let pokeStats = "";
@@ -162,13 +163,9 @@ function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dia
             </div>
         `
     }
-    return `
-        <h3>Base Stats</h3>
-        <div class="stats_container">
-            ${pokeStats}
-        </div>
-    `
+    return getDialogStatsTemplate(pokeStats);
 }
+
 
 function renderDialogMovesTab(movesArray) {
     let pokeMoves = "";
@@ -178,14 +175,9 @@ function renderDialogMovesTab(movesArray) {
 
         pokeMoves += `<p class="move_badge">${moveName}</p>`;
     }
-
-    return `
-        <h3>Moves</h3>
-        <div class="moves_container">
-            ${pokeMoves}
-        </div>
-    `
+    return getDialogMovesTemplate(pokeMoves);
 }
+
 
 function getAbilitiesAsText(abilitiesArray) {
     let abilityText = "";
@@ -199,19 +191,8 @@ function getAbilitiesAsText(abilitiesArray) {
     return abilityText;
 }
 
-function renderDialogAboutTab(dialogPokeDetails) {
-    let heightInMeter = dialogPokeDetails.height / 10;
-    let weightInKg = dialogPokeDetails.weight / 10;
 
-    return `
-        <h3>About</h3>
-        <p>Height: ${heightInMeter} m</p>
-        <p>Weight: ${weightInKg} kg</p>
-        <p>Abilities: ${getAbilitiesAsText(dialogPokeDetails.abilities)}</p>
-        <p>Base Exp: ${dialogPokeDetails.base_experience} XP</p>
-    `
 
-}
 
 
 
