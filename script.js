@@ -81,7 +81,7 @@ function filterCards() {
 function renderTypes(typeList) {
     let pokeTypes = "";
     for (let index = 0; index < typeList.length; index++) {
-        pokeTypes += `<p class="type-badge ${typeList[index]}">${typeList[index]}</p>`;
+        pokeTypes += `<span class="type-badge ${typeList[index]}">${typeList[index]}</span>`;
     }
     return pokeTypes;
 }
