@@ -205,9 +205,11 @@ function getAbilitiesAsText(abilitiesArray) {
 
 // To Do:
 
-// closeDialog (auf Hintergrund, der nicht scrollbar)
-
+// closeDialog (auf Hintergrund)
+// dialog backdrop & BG nicht scrollbar machen
+// Loading-Spinner positionieren & Hintergrund
 
 // Footer?
 // CSS hübsch machen
+
 // Responsive

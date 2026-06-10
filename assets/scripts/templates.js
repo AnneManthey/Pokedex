@@ -30,9 +30,9 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName){
             </section>
             <section class= "dialog_tab_section">
                 <div class="dialog_tab">
-                    <button class="tab_links bg_tab_active" onclick="openDialogTab(event, 'dialog-about')" id="default-open">About</button>
-                    <button class="tab_links bg_tab_closed" onclick="openDialogTab(event, 'dialog-stats')">Base Stats</button>
-                    <button class="tab_links bg_tab_closed" onclick="openDialogTab(event, 'dialog-moves')">Moves</button>
+                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-about')" id="default-open">About</button>
+                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-stats')">Base Stats</button>
+                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-moves')">Moves</button>
                 </div>
                 <div id="dialog-about" class="tab_content">
                     ${renderDialogAboutTab(dialogPokeDetails)}
