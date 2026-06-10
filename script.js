@@ -41,6 +41,12 @@ async function loadCards() {
     showAllCards();
 }
 
+function loadingSpinner(){
+    
+}
+
+
+
 function loadMoreCards() {
     galleryLimit += 20;
     showAllCards();
@@ -217,21 +223,13 @@ function renderDialogAboutTab(dialogPokeDetails) {
 
 // To Do:
 
-//Gallery:
 
 // Anzeige: loading
-// Hover-Effect
+// html auslagern
+// closeDialog (auf Hintergrund, der nicht scrollbar)
+
+
 // Footer?
 // CSS hübsch machen
-
-
-// Dialog:
-
-// html auslagern
-// closeDialog (auf Hintergrund)
-// forward/back function
-// ggf. moves austauschen?
-
-// CSS hübsch machen
-
+// Hover-Effect
 // Responsive
