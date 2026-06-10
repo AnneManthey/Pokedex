@@ -1,14 +1,14 @@
 function getCardTemplate(cardObject, formattedName){
     return /*html*/ `
-     <button onclick="openDialog(${cardObject.id})" id="card">
-            <header>
+     <button onclick="openDialog(${cardObject.id})" id="card" class="card_button">
+            <header class="card_header">
                 <p># ${cardObject.id}</p>
                 <h2 id="card-name">${formattedName}</h2>
             </header>
-            <main id="card-main">
-                <img class="card-img ${cardObject.types[0]}" src="${cardObject.img}" alt="Pokemon">
+            <main id="card-main" class="card_main">
+                <img class="card_img ${cardObject.types[0]}" src="${cardObject.img}" alt="Pokemon">
             </main>
-            <footer>
+            <footer class="card_footer">
                 <div>
                 ${renderTypes(cardObject.types)}
                 </div>

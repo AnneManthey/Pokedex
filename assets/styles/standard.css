@@ -1,12 +1,14 @@
 :root{
-    --dark-background: rgb(4, 37, 5);
-    --light-background:rgba(17, 75, 28, 0.5);
+    --dark-background: rgb(6, 23, 30, 1);
+    --light-background:rgb(13, 48, 60);
+    --border:rgb(46, 55, 59);
     
 }
 
 html{
     /* font-family: "Figtree"; */
     font-size: 16px;
+    color: antiquewhite;
 }
 
 * {
