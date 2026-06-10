@@ -6,9 +6,16 @@
 }
 
 html{
-    /* font-family: "Figtree"; */
     font-size: 16px;
     color: antiquewhite;
+    min-height: 100dvh;
+}
+
+body{
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 }
 
 * {

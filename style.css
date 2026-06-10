@@ -1,11 +1,13 @@
 main {
-    width: 100%;
+    /* width: 100%; */
     /* height: 100dvh; */
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--dark-background);
     /* padding: 20px; */
+    flex: 1;
+
 
 }
 
@@ -20,6 +22,7 @@ button {
     font-size: 1.2rem;
     padding: 8px;
     border-radius: 4px;
+    border: none;
 }
 
 .button_load:hover {
@@ -27,13 +30,17 @@ button {
 }
 
 .load_btn_section {
+    display: flex;
+    justify-content: center;
     padding: 10px;
+    background-color: var(--dark-background);
 }
 
 .page_header {
     width: 100%;
     height: 80px;
     display: flex;
+    flex-shrink: 0;
     justify-content: space-between;
     align-items: center;
     background-color: var(--light-background);
@@ -229,6 +236,8 @@ border-radius: 20px;
 
 .dialog_footer {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     padding: 10px 15px;
+    flex-shrink: 0;
 }
