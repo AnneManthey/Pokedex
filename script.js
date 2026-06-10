@@ -1,6 +1,7 @@
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const cardGallery = document.getElementById("content");
 const dialogRef = document.getElementById("dialog");
+const bodyRef = document.getElementById("page-body");
 let galleryLimit = 30;
 
 let cardList = [];
@@ -87,7 +88,7 @@ function renderTypes(typeList) {
 }
 
 async function openDialog(pokeID) {
-    let dialogBaseData = null;
+    let dialogBaseData = null; // entfernen? testen
     for (let index = 0; index < currentCards.length; index++) {
         if (currentCards[index].id === pokeID) {
             dialogBaseData = currentCards[index];
@@ -100,6 +101,9 @@ async function openDialog(pokeID) {
     dialogRef.showModal();
     dialogRef.innerHTML = getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName);
     document.getElementById("default-open").click();
+
+    
+    bodyRef.classList.add("page_body");
 }
 
 async function dialogNextCard(currentID) {
@@ -125,6 +129,7 @@ async function dialogPreviousCard(currentID) {
 function closeDialog() {
     event.stopPropagation();
     dialogRef.close();
+    bodyRef.classList.remove("page_body");
 }
 
 function openDialogTab(evt, tabName) {
