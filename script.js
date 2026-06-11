@@ -238,12 +238,9 @@ function getAbilitiesAsText(abilitiesArray) {
 
 // To Do:
 
-// load more Button if ende button ausblenden
 // Dialog Tabs designen
 // Balken/hübsche Anzeige der Base Stats
 
 // CSS hübsch machen:
 
-// Farben anpassen
-// Suchfeld & Buttons hübsch machen
 // Footer, Logo, imprint etc?

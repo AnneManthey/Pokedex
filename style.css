@@ -47,6 +47,7 @@ button {
     justify-content: space-between;
     align-items: center;
     background-color: var(--header-bg);
+    border: 2px solid var(--outline-dark);
     padding: 0px 48px;
 }
 
@@ -70,11 +71,11 @@ button {
     height: 60px;
 }
 
-.page_header_search>input {
+.search_input {
     width: 200px;
     height: 24px;
-    font-size: 1.2rem;
-    background-color: rgb(237, 234, 234);
+    font-size: 1.1rem;
+    background-color: var(--font-main)
 }
 
 .page_header_search button {
