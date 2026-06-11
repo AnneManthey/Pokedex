@@ -2,6 +2,7 @@ const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const cardGallery = document.getElementById("content");
 const dialogRef = document.getElementById("dialog");
 const bodyRef = document.getElementById("page-body");
+const loadBtnRef = document.getElementById("load-btn");
 let galleryLimit = 30;
 
 let cardList = [];
@@ -45,7 +46,8 @@ async function loadCards() {
 
 function loadingSpinner(){
     const loadingSpinnerRef = document.getElementById("loading-spinner");
-    loadingSpinnerRef.classList.toggle("d_none");
+    loadingSpinnerRef.classList.toggle("d_none"); // auch add?
+    loadBtnRef.classList.add("d_none");
 }
 
 
@@ -60,6 +62,7 @@ function renderCards() {
         let cardObject = currentCards[index];
         let formattedName = cardObject.name.charAt(0).toUpperCase() + cardObject.name.slice(1); // Ersten Buchstaben des Namens groß schreiben
         cardGallery.innerHTML += getCardTemplate(cardObject, formattedName);
+        loadBtnRef.classList.remove("d_none");
     }
 }
 
@@ -217,7 +220,7 @@ function getAbilitiesAsText(abilitiesArray) {
 
 // To Do:
 
-// Loading-Spinner auch bei load more, darf dabei nicht klickbar sein
+
 // Dialog Tabs designen
 // Balken/hübsche Anzeige der Base Stats
 
