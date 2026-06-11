@@ -197,13 +197,7 @@ function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dia
         let currentPokeStat = statsArray[index];
         let name = currentPokeStat.stat.name.toUpperCase();
         let value = currentPokeStat.base_stat;
-
-        pokeStats += `
-        <div class="stat_row">
-                <span class="stat_name">${name}:</span>
-                <span class="stat_value">${value}</span>
-            </div>
-        `
+        getPokeStatsTemplate(pokeStats, index, name, value);
     }
     return getDialogStatsTemplate(pokeStats);
 }

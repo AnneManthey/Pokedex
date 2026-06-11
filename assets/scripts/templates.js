@@ -71,6 +71,15 @@ function getDialogTypesTemplate(){
     `
 }
 
+function getPokeStatsTemplate(pokeStats, index, name, value) {
+    pokeStats += /*html*/`
+        <div class="stat_row">
+            <span class="stat_name">${name}:</span>
+            <span class="stat_value">${value}</span>
+        </div>
+    `
+}
+
 function getDialogStatsTemplate(pokeStats){
     return /*html*/ `
         <h3>Base Stats</h3>
