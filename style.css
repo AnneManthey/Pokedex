@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--dark-background);
+    background-color: var(--main-bg);
     /* padding: 20px; */
     flex: 1;
 }
@@ -19,8 +19,8 @@ button {
 
 .button_load {
     width: 130px;
-    background-color: var(--light-background);
-    color: antiquewhite;
+    background-color: var(--button);
+    color: var(--font-button);
     font-size: 1.2rem;
     padding: 8px;
     border-radius: 4px;
@@ -28,14 +28,15 @@ button {
 }
 
 .button_load:hover {
-    box-shadow: 2px 2px 1px var(--border);
+    background-color: var(--button-hover);
+    /* box-shadow: 2px 2px 1px var(--border); */
 }
 
 .load_btn_section {
     display: flex;
     justify-content: center;
     padding-bottom: 40px;
-    background-color: var(--dark-background);
+    background-color: var(--main-bg);
 }
 
 .page_header {
@@ -45,7 +46,7 @@ button {
     flex-shrink: 0;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--light-background);
+    background-color: var(--header-bg);
     padding: 0px 48px;
 }
 
@@ -55,7 +56,7 @@ button {
     /* display: flex;
     justify-content: space-between;
     align-items: center; */
-    background-color: var(--light-background);
+    background-color: var(--header-bg);
     padding: 0px 48px;
 }
 
@@ -73,6 +74,7 @@ button {
     width: 200px;
     height: 24px;
     font-size: 1.2rem;
+    background-color: rgb(237, 234, 234);
 }
 
 .page_header_search{
@@ -81,7 +83,7 @@ button {
 }
 
 .error_message {
-    color: rgb(105, 23, 23);
+    color: var(--button-hover);
 }
 
 .loading_spinner {
@@ -129,7 +131,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: var(--dark-background);
+    background-color: var(--main-bg);
     padding: 40px 20px;
     gap: 20px;
 }
@@ -138,26 +140,28 @@ p {
     height: 230px;
     width: 150px;
     padding: 0;
-    border: 2px solid var(--border);
+    border: 2px solid var(--outline-dark);
     border-radius: 8px;
-    background-color: var(--light-background);
+    background-color: var(--card-bg);
     cursor: pointer;
     overflow: hidden;
 }
 
 .card_button:hover {
     /* border: 4px solid var(--border); */
-    box-shadow: 5px 5px 2px var(--border);
+    box-shadow: 5px 5px 2px var(--outline-color);
+    border: 2px solid var(--outline-color);
+    background-color: var(--card-hover);
 }
 
 .card_header {
-    background-color: var(--light-background);
-    color: antiquewhite;
+    background-color: var(--card-bg);
+    color: var(--font-main);
     padding: 8px;
 }
 
 .card_main {
-    background-color: var(--light-background);
+    background-color: var(--card-bg);
 }
 
 .card_img {
@@ -177,7 +181,7 @@ p {
 .card_footer span {
     border-radius: 10px;
     padding: 3px;
-    border: 2px solid var(--border);
+    border: 2px solid var(--outline-dark);
     font-family: 'Bungee';
     font-size: 0.6rem;
 }
@@ -188,13 +192,13 @@ dialog {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--light-background);
+    background-color: var(--card-bg);
     border-radius: 16px;
-    border: 4px solid var(--border);
+    border: 4px solid var(--outline-dark);
 }
 
 .dialog_opened::backdrop {
-    background-color: var(--border);
+    background-color: var(--outline-dark);
     opacity: 0.8;
     transition: all 0.5s ease-in;
 }
@@ -218,18 +222,18 @@ dialog {
 .dialog_tab_section {
     width: 100%;
     font-family: 'Nunito';
-    color: antiquewhite;
+    color: var(--font-main);
 }
 
 .dialog_tab {
     width: 100%;
-    background-color: var(--light-background);
+    background-color: var(--card-bg);
 }
 
 .tab_links {
-    background-color: var(--light-background);
+    background-color: var(--card-bg);
     font-family: 'Nunito';
-    color: antiquewhite;
+    color: var(--font-main);
     font-size: 1.2rem;
     font-weight: bold;
     padding: 8px;
@@ -239,13 +243,13 @@ dialog {
 }
 
 .tab_links:hover {
-    background-color: var(--border);
+    background-color: var(--card-hover);
 }
 
 .tab_content {
     width: 100%;
-    background-color: var(--light-background);
-    color: antiquewhite;
+    background-color: var(--card-bg);
+    color: var(--font-main);
     padding: 8px;
 }
 

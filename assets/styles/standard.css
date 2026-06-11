@@ -2,12 +2,23 @@
     --dark-background: rgb(6, 23, 30, 1);
     --light-background:rgb(13, 48, 60);
     --border:rgb(46, 55, 59);
+
+    --main-bg:rgb(45, 12, 12);
+    --card-bg:rgb(36, 36, 36, 1);
+    --card-hover:rgb(46, 46, 46, 1);
+    --header-bg:rgb(17, 17, 17, 1);
+    --outline-dark:rgb(51, 51, 51, 1);
+    --outline-color:rgb(139, 0, 0, 1);
+    --font-main:rgb(250, 235, 215, 1);
+    --font-button:rgb(255, 255, 255, 1);
+    --button:rgb(100, 20, 20);
+    --button-hover:rgb(198, 40, 40, 1);
     
 }
 
 html{
     font-size: 16px;
-    color: antiquewhite;
+    color: var(--font-main);
     min-height: 100dvh;
     font-family: 'Nunito';
 }

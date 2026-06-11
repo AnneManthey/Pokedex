@@ -229,4 +229,3 @@ function getAbilitiesAsText(abilitiesArray) {
 // Farben anpassen
 // Suchfeld & Buttons hübsch machen
 // Footer, Logo, imprint etc?
-// Responsive
