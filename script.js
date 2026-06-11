@@ -2,6 +2,7 @@ const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 const cardGallery = document.getElementById("content");
 const dialogRef = document.getElementById("dialog");
 const bodyRef = document.getElementById("page-body");
+const searchInputRef = document.getElementById("search-input");
 const errorMessage = document.getElementById("error-message");
 const noMatchMessage = document.getElementById("not-found-message");
 const loadBtnRef = document.getElementById("load-btn");
@@ -74,30 +75,32 @@ function renderCards() {
     }
 }
 
-// kürzen!
+
 function filterCards() {
-    let searchInputRef = document.getElementById("search-input");
     let searchInput = searchInputRef.value;
     errorMessage.classList.add("d_none");
+    noMatchMessage.classList.add("d_none");
     loadBtnRef.classList.add("d_none");
     if (searchInput.length >= 3) {
-        currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
-        if (currentCards.length > 0) {
-            renderCards();
-            errorMessage.classList.add("d_none");
-            noMatchMessage.classList.add("d_none");
-            loadBtnRef.classList.add("d_none");
-            searchInputRef.value = "";
-        }
-        else {
-            noMatchMessage.classList.remove("d_none");
-            errorMessage.classList.add("d_none");
-            searchInputRef.value = "";
-        }
+        renderFilteredCards(searchInput)
     }
     else {
         errorMessage.classList.remove("d_none");
-        searchInputRef.value = "";
+    }
+    searchInputRef.value = "";
+}
+
+function renderFilteredCards(searchInput) {
+    currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
+    if (currentCards.length > 0) {
+        renderCards();
+        errorMessage.classList.add("d_none");
+        noMatchMessage.classList.add("d_none");
+        loadBtnRef.classList.add("d_none");
+    }
+    else {
+        noMatchMessage.classList.remove("d_none");
+        errorMessage.classList.add("d_none");
     }
 }
 
