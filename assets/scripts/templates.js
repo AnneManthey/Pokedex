@@ -28,7 +28,7 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName){
             <section class="${dialogBaseData.types[0]}">
                 <img class="dialog_img" src="${dialogBaseData.img}" alt="Pokemon">
             </section>
-            <section class= "dialog_tab_section">
+            <section class= "dialog_tab_section ${dialogBaseData.types[0]}">
                 <div class="dialog_tab">
                     <button class="tab_links" onclick="openDialogTab(event, 'dialog-about')" id="default-open">About</button>
                     <button class="tab_links" onclick="openDialogTab(event, 'dialog-stats')">Base Stats</button>
@@ -57,10 +57,20 @@ function renderDialogAboutTab(dialogPokeDetails) {
     let weightInKg = dialogPokeDetails.weight / 10;
 
     return /*html*/ `
-        <p>Height: ${heightInMeter} m</p>
-        <p>Weight: ${weightInKg} kg</p>
-        <p>Abilities: ${getAbilitiesAsText(dialogPokeDetails,dialogPokeDetails.abilities)}</p>
-        <p>Base Exp: ${dialogPokeDetails.base_experience} XP</p>
+    <table>
+        <tr>
+        <th>Height:</th><td> ${heightInMeter} m</td>
+        </tr>
+        <tr>
+        <th>Weight:</th><td> ${weightInKg} kg</td>
+        </tr>
+        <tr>
+        <th>Abilities:</th><td> ${getAbilitiesAsText(dialogPokeDetails,dialogPokeDetails.abilities)}</td>
+        </tr>
+        <tr>
+        <th>Base Exp:</th><td> ${dialogPokeDetails.base_experience} XP</td>
+    </tr>
+    </table>
     `
 }
 

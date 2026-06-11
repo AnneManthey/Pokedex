@@ -54,9 +54,6 @@ button {
 .page_footer {
     width: 100%;
     height: 80px;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
     background-color: var(--header-bg);
     border-top: 2px solid var(--outline-dark);
     padding: 0px 48px;
@@ -219,7 +216,6 @@ dialog {
     transition: all 0.5s ease-in;
 }
 
-
 .dialog_header {
     display: flex;
     justify-content: space-between;
@@ -230,26 +226,29 @@ dialog {
 }
 
 .dialog_header>button {
-    background-color: var(--light-background);
+    background-color: var(--main-bg);
     color: antiquewhite;
+    border: 2px solid var(--outline-dark);
+    font-size: 1.2rem;
 }
 
 
 .dialog_tab_section {
     width: 100%;
     font-family: 'Nunito';
-    color: var(--font-main);
+    /* color: var(--font-main); */
 }
 
 .dialog_tab {
     width: 100%;
-    background-color: var(--card-bg);
+    /* background-color: var(--card-bg); */
 }
 
 .tab_links {
-    background-color: var(--card-bg);
-    font-family: 'Nunito';
-    color: var(--font-main);
+    /* background-color: var(--card-bg); */
+    /* font-family: 'Nunito'; */
+    font-family: 'Bungee';
+    color: var(--card-bg);
     font-size: 1.2rem;
     font-weight: bold;
     padding: 8px;
@@ -259,18 +258,26 @@ dialog {
 }
 
 .tab_links:hover {
-    background-color: var(--card-hover);
+    background-color: rgb(211,211,211,0.5)
 }
 
 .tab_content {
     width: 100%;
-    background-color: var(--card-bg);
-    color: var(--font-main);
+    /* background-color: var(--card-bg); */
+    color: var(--card-bg);
     padding: 8px;
+     
 }
 
-.tab_content p {
+.tab_content th {
     padding: 4px;
+    text-align: left;
+    font-family: 'Bungee';
+}
+
+.tab_content td {
+    padding: 4px;
+    font-family: 'Bungee';
 }
 
 .dialog_footer {
