@@ -30,9 +30,9 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName){
             </section>
             <section class= "dialog_tab_section ${dialogBaseData.types[0]}">
                 <div class="dialog_tab">
-                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-about')" id="default-open">About</button>
-                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-stats')">Base Stats</button>
-                    <button class="tab_links" onclick="openDialogTab(event, 'dialog-moves')">Moves</button>
+                    <button class="tab_links ${dialogBaseData.types[0]}" onclick="openDialogTab(event, 'dialog-about')" id="default-open">About</button>
+                    <button class="tab_links ${dialogBaseData.types[0]}" onclick="openDialogTab(event, 'dialog-stats')">Base Stats</button>
+                    <button class="tab_links ${dialogBaseData.types[0]}" onclick="openDialogTab(event, 'dialog-moves')">Moves</button>
                 </div>
                 <div id="dialog-about" class="tab_content">
                     ${renderDialogAboutTab(dialogPokeDetails)}
@@ -40,7 +40,7 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName){
                 <div id="dialog-stats" class="tab_content">
                     ${renderDialogStatsTab(dialogPokeDetails.stats)}
                 </div>
-                <div id="dialog-moves" class="tab_content bg_tab_closed">
+                <div id="dialog-moves" class="tab_content">
                     ${renderDialogMovesTab(dialogPokeDetails.moves)}
                 </div>
             </section>
@@ -58,18 +58,10 @@ function renderDialogAboutTab(dialogPokeDetails) {
 
     return /*html*/ `
     <table>
-        <tr>
-        <th>Height:</th><td> ${heightInMeter} m</td>
-        </tr>
-        <tr>
-        <th>Weight:</th><td> ${weightInKg} kg</td>
-        </tr>
-        <tr>
-        <th>Abilities:</th><td> ${getAbilitiesAsText(dialogPokeDetails,dialogPokeDetails.abilities)}</td>
-        </tr>
-        <tr>
-        <th>Base Exp:</th><td> ${dialogPokeDetails.base_experience} XP</td>
-    </tr>
+        <tr><th>Height:</th><td> ${heightInMeter} m</td></tr>
+        <tr><th>Weight:</th><td> ${weightInKg} kg</td></tr>
+        <tr><th>Abilities:</th><td> ${getAbilitiesAsText(dialogPokeDetails,dialogPokeDetails.abilities)}</td></tr>
+        <tr><th>Base Exp:</th><td> ${dialogPokeDetails.base_experience} XP</td></tr>
     </table>
     `
 }
@@ -100,7 +92,6 @@ function getDialogStatsTemplate(pokeStats){
 
 function getDialogMovesTemplate(pokeMoves){
     return /*html*/ `
-        <h3>Moves</h3>
         <div class="moves_container">
             ${pokeMoves}
         </div>
