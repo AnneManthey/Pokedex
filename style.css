@@ -34,7 +34,7 @@ button {
 .load_btn_section {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding-bottom: 40px;
     background-color: var(--dark-background);
 }
 
@@ -69,10 +69,15 @@ button {
     height: 60px;
 }
 
-.page_header>input {
+.page_header_search> input {
     width: 200px;
     height: 24px;
     font-size: 1.2rem;
+}
+
+.page_header_search{
+    display: flex;
+    gap: 8px;
 }
 
 .error_message {
@@ -125,7 +130,7 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     background-color: var(--dark-background);
-    padding: 20px;
+    padding: 40px 20px;
     gap: 20px;
 }
 
@@ -209,9 +214,6 @@ dialog {
     color: antiquewhite;
 }
 
-/* .dialog_img{
-border-radius: 20px;
-} */
 
 .dialog_tab_section {
     width: 100%;
