@@ -44,7 +44,7 @@ async function loadCards() {
     showAllCards();
 }
 
-function loadingSpinner(){
+function loadingSpinner() {
     const loadingSpinnerRef = document.getElementById("loading-spinner");
     loadingSpinnerRef.classList.toggle("d_none"); // auch add?
     loadBtnRef.classList.add("d_none");
@@ -73,11 +73,17 @@ function filterCards() {
     const noMatchMessage = document.getElementById("not-found-message");
     if (searchInput.length >= 3) {
         currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
-        renderCards();
-        errorMessage.classList.add("d_none");
-        noMatchMessage.classList.add("d_none");
-        searchInputRef.value = "";
-        loadBtnRef.classList.add("d_none");
+        if (currentCards.length > 0) {
+            renderCards();
+            errorMessage.classList.add("d_none");
+
+            searchInputRef.value = "";
+            loadBtnRef.classList.add("d_none");
+        }
+        else {
+            noMatchMessage.classList.remove("d_none");
+            errorMessage.classList.add("d_none");
+        }
     }
     else {
         errorMessage.classList.remove("d_none");
@@ -113,20 +119,20 @@ async function openDialog(pokeID) {
 }
 
 async function dialogNextCard(currentID) {
-    let nextID = currentID +1;
+    let nextID = currentID + 1;
     if (nextID > currentCards.length) {
         nextID = 1;
     }
     await openDialog(nextID);
-    }
+}
 
 async function dialogPreviousCard(currentID) {
-    let previousID = currentID -1;
-    if (previousID < 1){
+    let previousID = currentID - 1;
+    if (previousID < 1) {
         previousID = currentCards.length;
     }
     await openDialog(previousID);
-    
+
 }
 
 
