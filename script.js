@@ -61,8 +61,12 @@ function loadingSpinner() {
 
 
 function loadMoreCards() {
+    if (galleryLimit <=120){
     galleryLimit += 30;
     showAllCards();
+    }
+    else
+        loadBtnRef.classList.add("d_none");
 }
 
 function renderCards() {
