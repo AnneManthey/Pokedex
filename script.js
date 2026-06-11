@@ -22,6 +22,7 @@ function showAllCards() {
     renderCards();
 }
 
+
 async function loadCards() {
     loadingSpinner();
     for (let pokeID = 1; pokeID < 201; pokeID++) {
@@ -29,23 +30,26 @@ async function loadCards() {
             let response = await fetch(baseURL + pokeID);
             let pokeData = await response.json();
             let pokeTypes = [];
-            for (let index = 0; index < pokeData.types.length; index++) {
-                let currentTypeObject = pokeData.types[index];
-                let typeName = currentTypeObject.type.name;
-                pokeTypes.push(typeName);
-            }
-
-            cardList.push({
-                "id": pokeID,
-                "name": pokeData.name,
-                "img": pokeData.sprites.other['official-artwork'].front_default,
-                "types": pokeTypes
-            });
+            pushToCardList(pokeData, pokeTypes, pokeID)
         } catch (error) {
             console.error(`Bad request`, error);
         }
     }
     showAllCards();
+}
+
+function pushToCardList(pokeData, pokeTypes, pokeID) {
+    for (let index = 0; index < pokeData.types.length; index++) {
+        let currentTypeObject = pokeData.types[index];
+        let typeName = currentTypeObject.type.name;
+        pokeTypes.push(typeName);
+    }
+    cardList.push({
+        "id": pokeID,
+        "name": pokeData.name,
+        "img": pokeData.sprites.other['official-artwork'].front_default,
+        "types": pokeTypes
+    });
 }
 
 function loadingSpinner() {
@@ -70,6 +74,7 @@ function renderCards() {
     }
 }
 
+// kürzen!
 function filterCards() {
     let searchInputRef = document.getElementById("search-input");
     let searchInput = searchInputRef.value;
@@ -105,6 +110,7 @@ function renderTypes(typeList) {
     return pokeTypes;
 }
 
+// kürzen!
 async function openDialog(pokeID) {
     let dialogBaseData = null; // entfernen? testen
     for (let index = 0; index < currentCards.length; index++) {
@@ -220,13 +226,6 @@ function getAbilitiesAsText(abilitiesArray) {
     }
     return abilityText;
 }
-
-
-
-
-
-
-
 
 
 
