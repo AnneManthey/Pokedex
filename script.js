@@ -26,7 +26,7 @@ function showAllCards() {
 
 async function loadCards() {
     loadingSpinner();
-    for (let pokeID = 1; pokeID < 201; pokeID++) {
+    for (let pokeID = 1; pokeID < 151; pokeID++) {
         try {
             let response = await fetch(baseURL + pokeID);
             let pokeData = await response.json();
@@ -78,9 +78,7 @@ function renderCards() {
 
 function filterCards() {
     let searchInput = searchInputRef.value;
-    errorMessage.classList.add("d_none");
-    noMatchMessage.classList.add("d_none");
-    loadBtnRef.classList.add("d_none");
+    hideMsgAndSpinner();
     if (searchInput.length >= 3) {
         renderFilteredCards(searchInput)
     }
@@ -94,14 +92,18 @@ function renderFilteredCards(searchInput) {
     currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
     if (currentCards.length > 0) {
         renderCards();
-        errorMessage.classList.add("d_none");
-        noMatchMessage.classList.add("d_none");
-        loadBtnRef.classList.add("d_none");
+        hideMsgAndSpinner()()
     }
     else {
         noMatchMessage.classList.remove("d_none");
         errorMessage.classList.add("d_none");
     }
+}
+
+function hideMsgAndSpinner() {
+    errorMessage.classList.add("d_none");
+    noMatchMessage.classList.add("d_none");
+    loadBtnRef.classList.add("d_none");
 }
 
 
@@ -237,7 +239,7 @@ function getAbilitiesAsText(abilitiesArray) {
 
 // To Do:
 
-
+// load more Button if ende button ausblenden
 // Dialog Tabs designen
 // Balken/hübsche Anzeige der Base Stats
 
