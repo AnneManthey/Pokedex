@@ -78,11 +78,12 @@ button {
 }
 
 .page_header_search button {
+    height: 22px ;
     border: none;
     border-radius: 2px;
     background-color: var(--button);
     color: var(--font-main);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family: 'Nunito';
 }
 
