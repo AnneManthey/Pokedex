@@ -1,6 +1,6 @@
 function getCardTemplate(cardObject, formattedName){
     return /*html*/ `
-     <button onclick="openDialog(${cardObject.id})" id="card" class="card_button">
+     <button onclick="loadDialogData(${cardObject.id})" id="card" class="card_button">
             <header class="card_header">
                 <p># ${cardObject.id}</p>
                 <h2 id="card-name">${formattedName}</h2>

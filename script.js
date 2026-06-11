@@ -92,7 +92,7 @@ function renderFilteredCards(searchInput) {
     currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
     if (currentCards.length > 0) {
         renderCards();
-        hideMsgAndSpinner()()
+        hideMsgAndSpinner()
     }
     else {
         noMatchMessage.classList.remove("d_none");
@@ -115,9 +115,8 @@ function renderTypes(typeList) {
     return pokeTypes;
 }
 
-// kürzen!
-async function openDialog(pokeID) {
-    let dialogBaseData = null; // entfernen? testen
+async function loadDialogData(pokeID) {
+    let dialogBaseData = [];
     for (let index = 0; index < currentCards.length; index++) {
         if (currentCards[index].id === pokeID) {
             dialogBaseData = currentCards[index];
@@ -126,11 +125,13 @@ async function openDialog(pokeID) {
     let response = await fetch(baseURL + pokeID);
     let dialogPokeDetails = await response.json();
     let formattedName = dialogBaseData.name.charAt(0).toUpperCase() + dialogBaseData.name.slice(1);
+    openDialog(dialogBaseData, dialogPokeDetails, formattedName);
+}
 
+function openDialog(dialogBaseData, dialogPokeDetails, formattedName) {
     dialogRef.showModal();
     dialogRef.innerHTML = getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName);
     document.getElementById("default-open").click();
-
     dialogRef.classList.add("dialog_opened");
     bodyRef.classList.add("page_body");
 }
@@ -140,7 +141,7 @@ async function dialogNextCard(currentID) {
     if (nextID > currentCards.length) {
         nextID = 1;
     }
-    await openDialog(nextID);
+    await loadDialogData(nextID);
 }
 
 async function dialogPreviousCard(currentID) {
@@ -148,7 +149,7 @@ async function dialogPreviousCard(currentID) {
     if (previousID < 1) {
         previousID = currentCards.length;
     }
-    await openDialog(previousID);
+    await loadDialogData(previousID);
 
 }
 
