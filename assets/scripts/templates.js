@@ -57,7 +57,6 @@ function renderDialogAboutTab(dialogPokeDetails) {
     let weightInKg = dialogPokeDetails.weight / 10;
 
     return /*html*/ `
-        <h3>About</h3>
         <p>Height: ${heightInMeter} m</p>
         <p>Weight: ${weightInKg} kg</p>
         <p>Abilities: ${getAbilitiesAsText(dialogPokeDetails,dialogPokeDetails.abilities)}</p>
@@ -71,14 +70,14 @@ function getDialogTypesTemplate(){
     `
 }
 
-function getPokeStatsTemplate(pokeStats, index, name, value) {
-    pokeStats += /*html*/`
-        <div class="stat_row">
-            <span class="stat_name">${name}:</span>
-            <span class="stat_value">${value}</span>
-        </div>
-    `
-}
+// function getPokeStatsTemplate(pokeStats, index, name, value) {
+//     pokeStats += /*html*/`
+//         <div class="stat_row">
+//             <span class="stat_name">${name}:</span>
+//             <span class="stat_value">${value}</span>
+//         </div>
+//     `
+// }
 
 function getDialogStatsTemplate(pokeStats){
     return /*html*/ `
