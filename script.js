@@ -70,11 +70,14 @@ function filterCards() {
     let searchInputRef = document.getElementById("search-input");
     let searchInput = searchInputRef.value;
     const errorMessage = document.getElementById("error-message");
+    const noMatchMessage = document.getElementById("not-found-message");
     if (searchInput.length >= 3) {
         currentCards = cardList.filter(cardList => cardList.name.toLowerCase().includes(searchInput.toLowerCase()));
         renderCards();
         errorMessage.classList.add("d_none");
+        noMatchMessage.classList.add("d_none");
         searchInputRef.value = "";
+        loadBtnRef.classList.add("d_none");
     }
     else {
         errorMessage.classList.remove("d_none");

@@ -70,14 +70,27 @@ button {
     height: 60px;
 }
 
-.page_header_search> input {
+.page_header_search>input {
     width: 200px;
     height: 24px;
     font-size: 1.2rem;
     background-color: rgb(237, 234, 234);
 }
 
-.page_header_search{
+.page_header_search button {
+    border: none;
+    border-radius: 2px;
+    background-color: var(--button);
+    color: var(--font-main);
+    font-size: 1.1rem;
+    font-family: 'Nunito';
+}
+
+.page_header_search button:hover {
+    background-color: var(--button-hover);
+}
+
+.page_header_search {
     display: flex;
     gap: 8px;
 }

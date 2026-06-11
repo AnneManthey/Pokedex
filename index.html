@@ -24,8 +24,11 @@
             <h1>Pokedex</h1>
         </div>
         <div class="page_header_search">
-            <input type="text" id="search-input" placeholder=" search ...">
-            <p id="error-message" class="error_message d_none">at least 3 characters</p>
+            <div>
+                <input type="text" id="search-input" placeholder=" search ...">
+            <p id="error-message" class="error_message d_none">More input needed</p>
+            <p id="not-found-message" class="error_message d_none">No matches found</p>
+            </div>
             <button onclick="filterCards()">Filter</button>
             <button onclick="showAllCards()">Show all</button>
         </div>
