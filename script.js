@@ -201,10 +201,17 @@ function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dia
         let currentPokeStat = statsArray[index];
         let name = currentPokeStat.stat.name.toUpperCase();
         let value = currentPokeStat.base_stat;
-        pokeStats += /*html*/`  <div class="stat_row">
-                                    <span class="stat_name">${name}:</span>
-                                    <span class="stat_value">${value}</span>
-                                </div>
+        pokeStats += /*html*/`  <tr>
+                                    <th>${name}:</th>
+                                    <td>
+                                        <div class="dialog_progress_container">
+                                            <div class="dialog_progress_bar" style="width:${value}%">
+                                             <p>${value}%</p>
+                                            </div>
+                                        </div>
+                                    </td>     
+                                </tr>
+                                 
                             `
     }
     return getDialogStatsTemplate(pokeStats);
@@ -242,8 +249,11 @@ function getAbilitiesAsText(abilitiesArray) {
 
 // To Do:
 
-// Dialog Tabs designen
-// Balken/hübsche Anzeige der Base Stats
+// Abilities function fixen!
+// Dialog Height an Base stats anpassen
+// close button hübschen?
+// Border Radius im inner dialog?
+
 
 // CSS hübsch machen:
 

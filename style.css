@@ -274,14 +274,37 @@ dialog {
 }
 
 .tab_content td {
+    width: 100%;
     padding: 4px;
     font-family: 'Bungee';
 }
 
 .tab_content p {
+    width: 200px;
     padding: 4px;
     font-family: 'Bungee';
-    text-align: center;
+    
+}
+
+.dialog_progress_bar{
+    height: 100%;
+    background-color: var(--outline-color); 
+    border-radius: 5px;
+    line-height: 20px;
+    
+}
+
+.dialog_progress_bar>p{
+    color: var(--font-main);
+    padding: 2px 10px;
+
+}
+
+.dialog_progress_container{
+    width: 100%;
+    background-color: var(--font-main);
+    border-radius: 5px;
+    height: 20px;
 }
 
 .dialog_footer {
