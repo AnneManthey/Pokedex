@@ -17,17 +17,27 @@ function init() {
 
 async function loadCards() {
     loadingSpinner();
+    let fetchPromises = [];
     for (let pokeID = 1; pokeID < 152; pokeID++) {
-        try {
-            let response = await fetch(baseURL + pokeID);
-            let pokeData = await response.json();
-            let pokeTypes = [];
-            pushToCardList(pokeData, pokeTypes, pokeID)
-        } catch (error) {
-            console.error(`Bad request`, error);
-        }
+        let promise = fetch(baseURL + pokeID).then(response => response.json());
+        fetchPromises.push(promise);
+    }
+    try {
+        let allPokeData = await Promise.all(fetchPromises);
+        pushCardsToCardList(allPokeData);
+    } catch (error) {
+        console.error(`Bad request`, error);
     }
     showAllCards();
+}
+
+function pushCardsToCardList(allPokeData) {
+    for (let i = 0; i < allPokeData.length; i++) {
+        let pokeData = allPokeData[i];
+        let pokeID = pokeData.id;
+        let pokeTypes = [];
+        pushToCardList(pokeData, pokeTypes, pokeID);
+    }
 }
 
 function showAllCards() {
@@ -198,7 +208,7 @@ function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dia
                                     </div></td>     
                                 </tr>
                             `
-        }
+    }
     return getDialogStatsTemplate(pokeStats);
 }
 
@@ -225,6 +235,6 @@ function getAbilities(abilitiesArray) {
 
 // Optional bzw. ggf. später nachrüsten:
 
-// Buttons für 1./2./3./etc. Generation laden 
+// Buttons für 1./2./3./etc. Generation laden
 // zusätzlicher Tab & Evo-Chain
 // Suchfunktion auch in der gesamten API?
