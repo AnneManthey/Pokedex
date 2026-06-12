@@ -60,7 +60,7 @@ function renderDialogAboutTab(dialogPokeDetails) {
     <table>
         <tr><th>Height:</th><td> ${heightInMeter} m</td></tr>
         <tr><th>Weight:</th><td> ${weightInKg} kg</td></tr>
-        <tr><th>Abilities:</th><td> ${getAbilitiesAsText(dialogPokeDetails.abilities)}</td></tr>
+        <tr><th>Abilities:</th><td> ${getAbilities(dialogPokeDetails.abilities)}</td></tr>
         <tr><th>Base Exp:</th><td> ${dialogPokeDetails.base_experience} XP</td></tr>
     </table>
     `
@@ -72,14 +72,6 @@ function getDialogTypesTemplate(){
     `
 }
 
-// function getPokeStatsTemplate(pokeStats, index, name, value) {
-//     pokeStats += /*html*/`
-//         <div class="stat_row">
-//             <span class="stat_name">${name}:</span>
-//             <span class="stat_value">${value}</span>
-//         </div>
-//     `
-// }
 
 function getDialogStatsTemplate(pokeStats){
     return /*html*/ `

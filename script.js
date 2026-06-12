@@ -3,11 +3,11 @@ const cardGallery = document.getElementById("content");
 const dialogRef = document.getElementById("dialog");
 const bodyRef = document.getElementById("page-body");
 const searchInputRef = document.getElementById("search-input");
-const errorMessage = document.getElementById("error-message");
-const noMatchMessage = document.getElementById("not-found-message");
+const errorMessageRef = document.getElementById("error-message");
+const noMatchMessageRef = document.getElementById("not-found-message");
 const loadBtnRef = document.getElementById("load-btn");
-let galleryLimit = 30;
 
+let galleryLimit = 30;
 let cardList = [];
 let currentCards = [];
 
@@ -15,18 +15,9 @@ function init() {
     loadCards();
 }
 
-function showAllCards() {
-    cardGallery.innerHTML = "";
-    currentCards = cardList.slice(0, galleryLimit);
-    errorMessage.classList.add("d_none");
-    noMatchMessage.classList.add("d_none");
-    renderCards();
-}
-
-
 async function loadCards() {
     loadingSpinner();
-    for (let pokeID = 1; pokeID < 151; pokeID++) {
+    for (let pokeID = 1; pokeID < 152; pokeID++) {
         try {
             let response = await fetch(baseURL + pokeID);
             let pokeData = await response.json();
@@ -37,6 +28,14 @@ async function loadCards() {
         }
     }
     showAllCards();
+}
+
+function showAllCards() {
+    cardGallery.innerHTML = "";
+    currentCards = cardList.slice(0, galleryLimit);
+    errorMessageRef.classList.add("d_none");
+    noMatchMessageRef.classList.add("d_none");
+    renderCards();
 }
 
 function pushToCardList(pokeData, pokeTypes, pokeID) {
@@ -55,15 +54,14 @@ function pushToCardList(pokeData, pokeTypes, pokeID) {
 
 function loadingSpinner() {
     const loadingSpinnerRef = document.getElementById("loading-spinner");
-    loadingSpinnerRef.classList.toggle("d_none"); // auch add?
+    loadingSpinnerRef.classList.remove("d_none");
     loadBtnRef.classList.add("d_none");
 }
 
-
 function loadMoreCards() {
-    if (galleryLimit <=120){
-    galleryLimit += 30;
-    showAllCards();
+    if (galleryLimit <= 151) {
+        galleryLimit += 30;
+        showAllCards();
     }
     else
         loadBtnRef.classList.add("d_none");
@@ -79,7 +77,6 @@ function renderCards() {
     }
 }
 
-
 function filterCards() {
     let searchInput = searchInputRef.value;
     hideMsgAndSpinner();
@@ -87,7 +84,7 @@ function filterCards() {
         renderFilteredCards(searchInput)
     }
     else {
-        errorMessage.classList.remove("d_none");
+        errorMessageRef.classList.remove("d_none");
     }
     searchInputRef.value = "";
 }
@@ -99,17 +96,16 @@ function renderFilteredCards(searchInput) {
         hideMsgAndSpinner()
     }
     else {
-        noMatchMessage.classList.remove("d_none");
-        errorMessage.classList.add("d_none");
+        noMatchMessageRef.classList.remove("d_none");
+        errorMessageRef.classList.add("d_none");
     }
 }
 
 function hideMsgAndSpinner() {
-    errorMessage.classList.add("d_none");
-    noMatchMessage.classList.add("d_none");
+    errorMessageRef.classList.add("d_none");
+    noMatchMessageRef.classList.add("d_none");
     loadBtnRef.classList.add("d_none");
 }
-
 
 function renderTypes(typeList) {
     let pokeTypes = "";
@@ -154,10 +150,7 @@ async function dialogPreviousCard(currentID) {
         previousID = currentCards.length;
     }
     await loadDialogData(previousID);
-
 }
-
-
 
 
 function closeDialog() {
@@ -184,7 +177,6 @@ function openDialogTab(evt, tabName) {
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
-
 }
 
 function renderDialogTypes(typesArray) {
@@ -194,7 +186,6 @@ function renderDialogTypes(typesArray) {
     }
 }
 
-
 function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dialogBaseData als Parameter in Functionsaufruf
     let pokeStats = "";
     for (let index = 0; index < statsArray.length; index++) {
@@ -203,39 +194,33 @@ function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dia
         let value = currentPokeStat.base_stat;
         pokeStats += /*html*/`  <tr><th>${name}:</th>
                                     <td><div class="dialog_progress_container">
-                                            <div class="dialog_progress_bar" style="width:${value}%"><p>${value}%</p>
-                                            </div>
-                                        </div>
-                                    </td>     
+                                            <div class="dialog_progress_bar" style="width:${value}%"><p>${value}%</p></div>
+                                    </div></td>     
                                 </tr>
                             `
-    }
+        }
     return getDialogStatsTemplate(pokeStats);
- }
-
+}
 
 function renderDialogMovesTab(movesArray) {
     let pokeMoves = "";
     for (index = 0; index < movesArray.length && index < 5; index++) {
         let currentPokeMove = movesArray[index];
         let moveName = currentPokeMove.move.name;
-
-        pokeMoves += `<p class="move_badge">${moveName}</p>`;
+        pokeMoves += /*html*/`<p class="move_badge">${moveName}</p>`;
     }
     return getDialogMovesTemplate(pokeMoves);
 }
 
-
-function getAbilitiesAsText(abilitiesArray) {
-    let abilityText = "";
+function getAbilities(abilitiesArray) {
+    let ability = "";
     for (let index = 0; index < abilitiesArray.length; index++) {
-        abilityText += abilitiesArray[index].ability.name;
-
+        ability += abilitiesArray[index].ability.name;
         if (index < abilitiesArray.length - 1) {
-            abilityText += ", ";
+            ability += ", ";
         }
     }
-    return abilityText;
+    return ability;
 }
 
 
@@ -247,8 +232,6 @@ function getAbilitiesAsText(abilitiesArray) {
 
 
 // Border Radius im inner dialog?
-
-
 // CSS hübsch machen:
 
 // Footer, Logo, imprint etc?
