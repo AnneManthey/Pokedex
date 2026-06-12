@@ -222,3 +222,9 @@ function getAbilities(abilitiesArray) {
     }
     return ability;
 }
+
+// Optional bzw. ggf. später nachrüsten:
+
+// Buttons für 1./2./3./etc. Generation laden 
+// zusätzlicher Tab & Evo-Chain
+// Suchfunktion auch in der gesamten API?
