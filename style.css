@@ -3,13 +3,10 @@
 }
 
 .page_main {
-    /* width: 100%; */
-    /* height: 100dvh; */
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--main-bg);
-    /* padding: 20px; */
     flex: 1;
 }
 
@@ -29,7 +26,6 @@ button {
 
 .button_load:hover {
     background-color: var(--button-hover);
-    /* box-shadow: 2px 2px 1px var(--border); */
 }
 
 .load_btn_section {
@@ -130,7 +126,6 @@ button {
     }
 }
 
-/* Gallery */
 
 h2 {
     font-family: 'Nunito';
@@ -161,7 +156,6 @@ p {
 }
 
 .card_button:hover {
-    /* border: 4px solid var(--border); */
     box-shadow: 5px 5px 2px var(--outline-color);
     border: 2px solid var(--outline-color);
     background-color: var(--card-hover);
@@ -185,10 +179,8 @@ p {
 .card_footer {
     display: flex;
     height: 40px;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-
 }
 
 .card_footer span {
@@ -198,8 +190,6 @@ p {
     font-family: 'Bungee';
     font-size: 0.6rem;
 }
-
-/* Dialog */
 
 dialog {
     height: 980px;
@@ -244,19 +234,22 @@ dialog {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .dialog_tab_section {
     width: 100%;
     height: 300px;
     font-family: 'Nunito';
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .dialog_tab {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    /* background-color: var(--card-bg); */
 }
 
 .tab_links {
@@ -296,7 +289,6 @@ dialog {
     width: 200px;
     padding: 4px;
     font-family: 'Bungee';
-
 }
 
 .dialog_progress_bar {
@@ -307,13 +299,11 @@ dialog {
     background-color: var(--outline-color);
     border-radius: 5px;
     line-height: 20px;
-
 }
 
 .dialog_progress_bar>p {
     color: var(--font-main);
     padding: 2px 10px;
-
 }
 
 .dialog_progress_container {
