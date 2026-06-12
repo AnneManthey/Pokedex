@@ -240,6 +240,11 @@ dialog {
     background-color: rgb(227, 186, 127);
 }
 
+.dialog_img_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .dialog_tab_section {
     width: 100%;
@@ -297,6 +302,8 @@ dialog {
 .dialog_progress_bar {
     height: 100%;
     max-width: 100%;
+    display: flex;
+    align-items: center;
     background-color: var(--outline-color);
     border-radius: 5px;
     line-height: 20px;
@@ -310,7 +317,7 @@ dialog {
 }
 
 .dialog_progress_container {
-    width: 100%;
+    max-width: 100%;
     background-color: var(--font-main);
     border-radius: 5px;
     height: 20px;

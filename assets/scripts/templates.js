@@ -25,7 +25,7 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName){
             <button onclick="closeDialog()">x</button>
         </header>
         <main>
-            <section class="${dialogBaseData.types[0]}">
+            <section class="dialog_img_section ${dialogBaseData.types[0]}">
                 <img class="dialog_img" src="${dialogBaseData.img}" alt="Pokemon">
             </section>
             <section class= "dialog_tab_section ${dialogBaseData.types[0]}">
