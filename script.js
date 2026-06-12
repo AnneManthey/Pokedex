@@ -21,17 +21,16 @@ async function loadCards() {
     for (let pokeID = 1; pokeID < 152; pokeID++) {
         let promise = fetch(baseURL + pokeID).then(response => response.json());
         fetchPromises.push(promise);
-    }
-    try {
+    } try {
         let allPokeData = await Promise.all(fetchPromises);
-        pushCardsToCardList(allPokeData);
+        prepareLoadedCards(allPokeData);
     } catch (error) {
         console.error(`Bad request`, error);
     }
     showAllCards();
 }
 
-function pushCardsToCardList(allPokeData) {
+function prepareLoadedCards(allPokeData) {
     for (let i = 0; i < allPokeData.length; i++) {
         let pokeData = allPokeData[i];
         let pokeID = pokeData.id;
