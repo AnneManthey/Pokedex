@@ -207,7 +207,7 @@ function renderDialogMovesTab(movesArray) {
     for (index = 0; index < movesArray.length && index < 5; index++) {
         let currentPokeMove = movesArray[index];
         let moveName = currentPokeMove.move.name;
-        pokeMoves += /*html*/`<p class="move_badge">${moveName}</p>`;
+        pokeMoves += /*html*/`<p class="dialog_move_container"><img src="./assets/icons/move_icon.svg" alt="sun icon">${moveName}</p>`;
     }
     return getDialogMovesTemplate(pokeMoves);
 }
@@ -222,16 +222,3 @@ function getAbilities(abilitiesArray) {
     }
     return ability;
 }
-
-
-
-
-
-
-// To Do:
-
-
-// Border Radius im inner dialog?
-// CSS hübsch machen:
-
-// Footer, Logo, imprint etc?

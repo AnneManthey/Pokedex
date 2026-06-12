@@ -75,7 +75,7 @@ button {
     gap: 24px;
 }
 
-.page_header_logo>img {
+.page_header_logo img {
     height: 60px;
 }
 
@@ -170,9 +170,9 @@ p {
 }
 
 .card_button:hover {
-    box-shadow: 5px 5px 2px var(--outline-color);
-    border: 2px solid var(--outline-color);
-    background-color: var(--card-hover);
+    box-shadow: 0 0 20px rgba(205, 146, 37, 0.5);
+    border: 2px solid var(--outline-dark);
+    transform: scale(1.05);
 }
 
 .card_header {
@@ -325,6 +325,17 @@ dialog {
     background-color: var(--font-main);
     border-radius: 5px;
     height: 20px;
+}
+
+.dialog_move_container{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.dialog_move_container img{
+    padding-left: 10px;
 }
 
 .dialog_footer {
