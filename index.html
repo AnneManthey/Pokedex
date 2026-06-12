@@ -26,8 +26,8 @@
         <div class="page_header_search">
             <div>
                 <input type="text" id="search-input" class="search_input" placeholder=" search ...">
-            <p id="error-message" class="error_message d_none">More input needed</p>
-            <p id="not-found-message" class="error_message d_none">No matches found</p>
+                <p id="error-message" class="error_message d_none">More input needed</p>
+                <p id="not-found-message" class="error_message d_none">No matches found</p>
             </div>
             <button onclick="filterCards()">Filter</button>
             <button onclick="showAllCards()">Show all</button>
@@ -38,13 +38,16 @@
             <img id="loading-spinner" class="loading_spinner d_none" src="./assets/icons/loading.svg"
                 alt="Loading Spinner">
         </section>
-        
+
 
         <dialog id="dialog">
         </dialog>
     </main>
-    <div class="load_btn_section"><button id="load-btn" class="button_load" onclick="loadMoreCards()">Load more</button></div>
+    <div class="load_btn_section"><button id="load-btn" class="button_load" onclick="loadMoreCards()">Load more</button>
+    </div>
     <footer class="page_footer">
+        <a href="#page-body"><img src="./assets/icons/logo.svg" alt="Logo"></a>
+        <a href="imprint.html">Imprint</a>
     </footer>
 
 </body>
