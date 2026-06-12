@@ -245,8 +245,7 @@ function getAbilitiesAsText(abilitiesArray) {
 
 // To Do:
 
-// Dialog Height an Base stats anpassen
-// close button hübschen?
+
 // Border Radius im inner dialog?
 
 
