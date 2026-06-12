@@ -201,17 +201,13 @@ function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dia
         let currentPokeStat = statsArray[index];
         let name = currentPokeStat.stat.name.toUpperCase();
         let value = currentPokeStat.base_stat;
-        pokeStats += /*html*/`  <tr>
-                                    <th>${name}:</th>
-                                    <td>
-                                        <div class="dialog_progress_container">
-                                            <div class="dialog_progress_bar" style="width:${value}%">
-                                             <p>${value}%</p>
+        pokeStats += /*html*/`  <tr><th>${name}:</th>
+                                    <td><div class="dialog_progress_container">
+                                            <div class="dialog_progress_bar" style="width:${value}%"><p>${value}%</p>
                                             </div>
                                         </div>
                                     </td>     
                                 </tr>
-                                 
                             `
     }
     return getDialogStatsTemplate(pokeStats);
@@ -249,7 +245,6 @@ function getAbilitiesAsText(abilitiesArray) {
 
 // To Do:
 
-// Abilities function fixen!
 // Dialog Height an Base stats anpassen
 // close button hübschen?
 // Border Radius im inner dialog?
