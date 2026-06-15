@@ -70,6 +70,14 @@ function getDialogTypesTemplate(){
     `
 }
 
+function getPokeStatsTemplate(pokeStats, name, value){
+    return /*html*/`  <tr><th>${name}:</th>
+                                    <td><div class="dialog_progress_container">
+                                            <div class="dialog_progress_bar" style="width:${value}%"><p>${value}</p></div>
+                                    </div></td>     
+                                </tr> `
+}
+
 function getDialogStatsTemplate(pokeStats){
     return /*html*/ `
         <table class="stats_container">

@@ -226,11 +226,7 @@ function renderDialogStatsTab(statsArray) {
         let currentPokeStat = statsArray[index];
         let name = currentPokeStat.stat.name.toUpperCase();
         let value = currentPokeStat.base_stat;
-        pokeStats += /*html*/`  <tr><th>${name}:</th>
-                                    <td><div class="dialog_progress_container">
-                                            <div class="dialog_progress_bar" style="width:${value}%"><p>${value}</p></div>
-                                    </div></td>     
-                                </tr> `
+        pokeStats += getPokeStatsTemplate(pokeStats, name, value)
     }
     return getDialogStatsTemplate(pokeStats);
 }
