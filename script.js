@@ -80,7 +80,7 @@ function renderCards() {
     cardGallery.innerHTML = "";
     for (let index = 0; index < currentCards.length; index++) {
         let cardObject = currentCards[index];
-        let formattedName = cardObject.name.charAt(0).toUpperCase() + cardObject.name.slice(1); // Ersten Buchstaben des Namens groß schreiben
+        let formattedName = cardObject.name.charAt(0).toUpperCase() + cardObject.name.slice(1);
         cardGallery.innerHTML += getCardTemplate(cardObject, formattedName);
         loadBtnRef.classList.remove("d_none");
     }
@@ -141,18 +141,17 @@ function openDialog(dialogBaseData, dialogPokeDetails, formattedName) {
     dialogRef.showModal();
     dialogRef.innerHTML = getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName);
     hideDialogButtons();
-    
     document.getElementById("default-open").click();
     dialogRef.classList.add("dialog_opened");
     bodyRef.classList.add("page_body");
 }
 
-function hideDialogButtons(){
-    if (currentCards.length ==1){
+function hideDialogButtons() {
+    if (currentCards.length == 1) {
         document.getElementById("button-next-card").classList.add("d_none");
         document.getElementById("button-previous-card").classList.add("d_none");
     }
-    else if(currentCards.length>1){
+    else if (currentCards.length > 1) {
         document.getElementById("button-next-card").classList.remove("d_none");
         document.getElementById("button-previous-card").classList.remove("d_none");
     }
@@ -173,7 +172,6 @@ async function dialogPreviousCard(currentID) {
     }
     await loadDialogData(previousID);
 }
-
 
 function closeDialog() {
     event.stopPropagation();
@@ -208,7 +206,7 @@ function renderDialogTypes(typesArray) {
     }
 }
 
-function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dialogBaseData als Parameter in Functionsaufruf
+function renderDialogStatsTab(statsArray) { 
     let pokeStats = "";
     for (let index = 0; index < statsArray.length; index++) {
         let currentPokeStat = statsArray[index];
@@ -216,10 +214,9 @@ function renderDialogStatsTab(statsArray) { // Verbindung: dialogPokeDetails/dia
         let value = currentPokeStat.base_stat;
         pokeStats += /*html*/`  <tr><th>${name}:</th>
                                     <td><div class="dialog_progress_container">
-                                            <div class="dialog_progress_bar" style="width:${value}%"><p>${value}%</p></div>
+                                            <div class="dialog_progress_bar" style="width:${value}%"><p>${value}</p></div>
                                     </div></td>     
-                                </tr>
-                            `
+                                </tr> `
     }
     return getDialogStatsTemplate(pokeStats);
 }
@@ -245,8 +242,4 @@ function getAbilities(abilitiesArray) {
     return ability;
 }
 
-// Optional bzw. ggf. später nachrüsten:
 
-// Buttons für 1./2./3./etc. Generation laden
-// zusätzlicher Tab & Evo-Chain
-// Suchfunktion auch in der gesamten API?

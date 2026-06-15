@@ -1,5 +1,3 @@
-/* Background-Classes */
-
 .normal {
     background-color: #A8A77A;
 }
@@ -18,7 +16,6 @@
 
 .grass {
     background-color: #7AC74C;
-    
 }
 
 .ice {
@@ -72,13 +69,3 @@
 .fairy {
     background-color: #D685AD;
 }
-
-/* Background Tabs */
-
-/* .bg_tab_active{
-    background-color: var(--light-background);
-}
-
-.bg_tab_closed{
-    background-color: var(--dark-background);
-} */
