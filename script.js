@@ -140,6 +140,14 @@ async function loadDialogData(pokeID) {
 function openDialog(dialogBaseData, dialogPokeDetails, formattedName) {
     dialogRef.showModal();
     dialogRef.innerHTML = getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName);
+    if (currentCards.length =1){
+        document.getElementById("button-next-card").classList.add("d_none");
+        document.getElementById("button-previous-card").classList.add("d_none");
+    }
+    else{
+        document.getElementById("button-next-card").classList.remove("d_none");
+        document.getElementById("button-previous-card").classList.remove("d_none");
+    }
     document.getElementById("default-open").click();
     dialogRef.classList.add("dialog_opened");
     bodyRef.classList.add("page_body");

@@ -46,8 +46,8 @@ function getDialogTemplate(dialogBaseData, dialogPokeDetails, formattedName){
             </section>
         </main>
         <footer class= "dialog_footer">
-            <button onclick="dialogPreviousCard(${dialogBaseData.id})" class="button_img"><img src="./assets/icons/arrow_left.png" alt="Arrow Left"></button>
-            <button onclick="dialogNextCard(${dialogBaseData.id})" class="button_img"><img src="./assets/icons/arrow_right.png" alt="Arrow Right"></button>
+            <button onclick="dialogPreviousCard(${dialogBaseData.id})" id="button-previous-card" class="button_img"><img src="./assets/icons/arrow_left.png" alt="Arrow Left"></button>
+            <button onclick="dialogNextCard(${dialogBaseData.id})" id="button-next-card" class="button_img"><img src="./assets/icons/arrow_right.png" alt="Arrow Right"></button>
         </footer>
     `
 }
