@@ -253,3 +253,10 @@ function getAbilities(abilitiesArray) {
 }
 
 
+// Optional bzw. ggf. später nachrüsten:
+
+// Buttons für 1./2./3./etc. Generation laden
+// zusätzlicher Tab & Evo-Chain
+// Suchfunktion auch in der gesamten API?
+// Dialog vor/zurück Buttons seitlich positionieren
+
