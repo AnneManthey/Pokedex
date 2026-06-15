@@ -158,10 +158,19 @@ function hideDialogButtons() {
 }
 
 async function dialogNextCard(currentID) {
-    let nextID = currentID + 1;
-    if (nextID > currentCards.length) {
-        nextID = 1;
+    let currentIndex = -1;
+    for (let i = 0; i < currentCards.length; i++){
+        if (currentCards[i].id === currentID){
+            currentIndex = i;
+            break;
+        }
     }
+    if (currentIndex === -1) return;
+    let nextIndex = currentIndex +1;
+    if(nextIndex >= currentCards.length){
+        nextIndex = 0;
+    }
+    let nextID = currentCards[nextIndex].id;
     await loadDialogData(nextID);
 }
 
