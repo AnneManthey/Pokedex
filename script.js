@@ -162,10 +162,8 @@ async function dialogNextCard(currentID) {
     for (let i = 0; i < currentCards.length; i++){
         if (currentCards[i].id === currentID){
             currentIndex = i;
-            break;
         }
     }
-    if (currentIndex === -1) return;
     let nextIndex = currentIndex +1;
     if(nextIndex >= currentCards.length){
         nextIndex = 0;
@@ -175,10 +173,17 @@ async function dialogNextCard(currentID) {
 }
 
 async function dialogPreviousCard(currentID) {
-    let previousID = currentID - 1;
-    if (previousID < 1) {
-        previousID = currentCards.length;
+    let currentIndex = -1;
+    for (let i = 0; i < currentCards.length; i++) {
+        if (currentCards[i].id === currentID) {
+            currentIndex = i;
+        }
     }
+    let previousIndex = currentIndex - 1;
+    if (previousIndex < 0) {
+        previousIndex = currentCards.length - 1;
+    }
+    let previousID = currentCards[previousIndex].id;
     await loadDialogData(previousID);
 }
 
