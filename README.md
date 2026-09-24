@@ -1,41 +1,37 @@
 # Pokedex
 
-A responsive, browser-based Pokedex for the first 151 Pokemon. The application fetches live Pokemon data from [PokeAPI](https://pokeapi.co/) and presents it in a searchable card gallery with detailed views.
+Pokedex is a responsive browser application for exploring the original 151 Pokemon. It loads Pokemon data and official artwork from [PokeAPI](https://pokeapi.co/) and displays them in a searchable card gallery. Each card opens a detail dialog with information, base stats, and moves. The project uses plain HTML, CSS, and JavaScript without a package manager or build step.
 
-## Features
+## Quickstart
 
-- Displays the original 151 Pokemon with their official artwork and types
-- Loads cards progressively with a **Load more** button
-- Filters Pokemon by name (minimum three characters)
-- Opens a detailed modal for each Pokemon
-- Shows height, weight, abilities, base experience, base stats, and moves
-- Lets users browse forward and backward through the current results
-- Responsive layout for desktop and mobile screens
+### Prerequisites
 
-## Built with
+- A modern web browser with JavaScript enabled
+- Internet access for requests to PokeAPI
+- A local web server, such as the VS Code Live Server extension
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- [PokeAPI](https://pokeapi.co/)
+### Setup
 
-## Getting started
+1. Open the project directory in a local web server.
+2. Open `index.html` in the browser.
 
-No installation or build step is required.
+No installation or build command is required.
 
-1. Clone the repository:
+## Usage
 
-   ```bash
-   git clone git@github.com:AnneManthey/Pokedex.git
-   ```
+- Browse the first 151 Pokemon in the card gallery.
+- Select **Load more** to display additional cards.
+- Enter at least three characters and select **Filter** to search by name.
+- Select **Show all** to restore the default gallery.
+- Select a card to open its detail dialog. The dialog includes the Pokemon's height, weight, abilities, base experience, base stats, and moves.
+- Use the dialog navigation buttons to move through the currently displayed results.
+- Open `imprint.html` for legal and image-credit information.
 
-2. Open the project folder.
-3. Start a local web server, for example with VS Code's **Live Server** extension.
-4. Open `index.html` in your browser.
+## Notes
 
-An internet connection is required because Pokemon data and artwork are requested from PokeAPI at runtime.
+Pokemon data and artwork are requested from PokeAPI at runtime, so the application requires an internet connection. The application requests Pokemon IDs 1 through 151 from the PokeAPI endpoint `https://pokeapi.co/api/v2/pokemon/`.
 
-## Project structure
+## Project Structure
 
 ```text
 .
@@ -49,10 +45,6 @@ An internet connection is required because Pokemon data and artwork are requeste
     |-- scripts/templates.js    # HTML template functions
     `-- styles/                 # Shared, background, font, and responsive styles
 ```
-
-## Data and credits
-
-Pokemon data and artwork are provided by [PokeAPI](https://pokeapi.co/). See the application's imprint page for additional icon credits and legal information.
 
 ## Author
 
